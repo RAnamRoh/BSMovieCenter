@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4A24CC632BF7893E000E4C4B /* MovieInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC622BF7893E000E4C4B /* MovieInfoViewModel.swift */; };
+		4A24CC652BFB2264000E4C4B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC642BFB2264000E4C4B /* Movie.swift */; };
+		4A24CC692BFB2F19000E4C4B /* MovieBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC682BFB2F19000E4C4B /* MovieBannerView.swift */; };
+		4A24CC6C2BFB813D000E4C4B /* Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC6B2BFB813D000E4C4B /* Shimmering.swift */; };
 		4AA48F802BF7734D0059001D /* BSMovieCenterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */; };
 		4AA48F822BF7734D0059001D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA48F812BF7734D0059001D /* HomeView.swift */; };
 		4AA48F842BF7734E0059001D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA48F832BF7734E0059001D /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		4A24CC622BF7893E000E4C4B /* MovieInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewModel.swift; sourceTree = "<group>"; };
+		4A24CC642BFB2264000E4C4B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4A24CC682BFB2F19000E4C4B /* MovieBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBannerView.swift; sourceTree = "<group>"; };
+		4A24CC6B2BFB813D000E4C4B /* Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmering.swift; sourceTree = "<group>"; };
 		4AA48F7C2BF7734D0059001D /* BSMovieCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSMovieCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSMovieCenterApp.swift; sourceTree = "<group>"; };
 		4AA48F812BF7734D0059001D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -38,6 +44,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A24CC672BFB2EAD000E4C4B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AA48F812BF7734D0059001D /* HomeView.swift */,
+				4A24CC682BFB2F19000E4C4B /* MovieBannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A24CC6A2BFB80AA000E4C4B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4A24CC6B2BFB813D000E4C4B /* Shimmering.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		4AA48F732BF7734D0059001D = {
 			isa = PBXGroup;
 			children = (
@@ -57,11 +80,12 @@
 		4AA48F7E2BF7734D0059001D /* BSMovieCenter */ = {
 			isa = PBXGroup;
 			children = (
+				4A24CC6A2BFB80AA000E4C4B /* Utilities */,
 				4AA48F922BF774FB0059001D /* NetworkManager */,
 				4AA48F8F2BF773940059001D /* ViewModel */,
 				4AA48F8D2BF773780059001D /* Model */,
 				4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */,
-				4AA48F812BF7734D0059001D /* HomeView.swift */,
+				4A24CC672BFB2EAD000E4C4B /* View */,
 				4AA48F832BF7734E0059001D /* Assets.xcassets */,
 				4AA48F852BF7734E0059001D /* Preview Content */,
 			);
@@ -80,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA48F902BF7748B0059001D /* MovieData.swift */,
+				4A24CC642BFB2264000E4C4B /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,10 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A24CC692BFB2F19000E4C4B /* MovieBannerView.swift in Sources */,
 				4AA48F912BF7748B0059001D /* MovieData.swift in Sources */,
 				4A24CC632BF7893E000E4C4B /* MovieInfoViewModel.swift in Sources */,
+				4A24CC652BFB2264000E4C4B /* Movie.swift in Sources */,
 				4AA48F822BF7734D0059001D /* HomeView.swift in Sources */,
 				4AA48F942BF7753A0059001D /* NetworkService.swift in Sources */,
+				4A24CC6C2BFB813D000E4C4B /* Shimmering.swift in Sources */,
 				4AA48F802BF7734D0059001D /* BSMovieCenterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

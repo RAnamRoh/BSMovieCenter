@@ -14,6 +14,8 @@ class MovieInfoViewModel{
     
     var movieData : MovieData?
     
+    var isLoading = true
+    
     init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil) {
         self.networkService = networkService
         self.movieData = movieData
@@ -38,7 +40,9 @@ class MovieInfoViewModel{
             print("Error From ViewMOdel")
             
         }
+        isLoading = false
     }
+    
     
     
 }

@@ -10,4 +10,9 @@ import Foundation
 struct MovieData : Codable{
     let status : String
     let status_message : String
+    let data : RepoData
+}
+
+struct RepoData : Codable {
+    let movies : [Movie]
 }
