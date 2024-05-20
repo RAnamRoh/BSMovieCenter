@@ -46,17 +46,19 @@ struct HomeView: View {
             
             
             if viewModel.isLoading {
-               ProgressView()
+               Rectangle()
+                    .frame(height: 200)
+                    .shimmering()
             }
             else{
                 
                 
                 TabView {
                     if let movies = viewModel.movieData?.data.movies {
-                    ForEach(movies, id: \.id) { movie in
-                      MovieBannerView(movie: movie)
-                            .scaledToFit()
-                    }
+                            ForEach(movies, id: \.id) { movie in
+                          MovieBannerView(movie: movie)
+                                
+                            }
                   } else {
                     // Handle empty view (optional)
                     Text("No movies found")
