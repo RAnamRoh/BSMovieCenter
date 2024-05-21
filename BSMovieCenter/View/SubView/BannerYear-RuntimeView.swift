@@ -14,13 +14,14 @@ struct BannerYear_RuntimeView: View {
     var body: some View {
         HStack{
           
-            Text(String(movie.runtime))
+           
+            Text(String(movie.year))
                 .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
                 .background(
                 Capsule()
                     .stroke(Color.white , lineWidth: 1)
                 )
-            Text(String(movie.year))
+            Text(Util.minutesToHoursAndMinutes(movie.runtime))
                 .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
                 .background(
                 Capsule()
@@ -28,6 +29,7 @@ struct BannerYear_RuntimeView: View {
                 )
             
         } // Capsules
+        .foregroundStyle(Color.white)
         .font(.caption)
     }
 }

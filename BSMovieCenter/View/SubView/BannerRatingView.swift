@@ -15,21 +15,25 @@ struct BannerRatingView: View {
         HStack {
             Image(systemName: "star.fill")
             Text(String(format: "%.1f", movie.rating))
-                .font(.subheadline)
-                .fontWeight(.bold)
+               
         }
-        .padding(5)
+        .font(.caption2)
+        .fontWeight(.bold)
+        .foregroundStyle(Color.white)
+        .padding(3)
         .background(
-            RoundedRectangle(cornerRadius: 10)
+            Rectangle()
                 .fill(.ultraThinMaterial)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    Rectangle()
                         .stroke(Color.white, lineWidth: 1)
                 )
+                .clipShape(.rect(cornerRadius: 2))
         )
     }
 }
 
 #Preview {
     BannerRatingView(movie: Movie.movieExample)
+        
 }

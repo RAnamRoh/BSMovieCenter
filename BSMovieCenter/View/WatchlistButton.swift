@@ -14,7 +14,7 @@ struct WatchlistButton: View {
                 .foregroundStyle(Color.white)
                 .padding(10)
                 .font(.subheadline)
-                .background(Color(UIColor.systemPurple))
+                .background(Color("WatchlistButtonColor"))
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class MovieInfoViewModel{
+class MovieInfoViewModel {
     
     let networkService : NetworkService
     

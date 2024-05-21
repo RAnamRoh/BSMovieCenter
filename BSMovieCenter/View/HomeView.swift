@@ -42,56 +42,27 @@ struct HomeView: View {
     @State var viewModel = MovieInfoViewModel()
     
     var body: some View {
-        VStack {
-            
-            
-            if viewModel.isLoading {
-               Rectangle()
-                    .frame(height: 200)
-                    .shimmering()
-            }
-            else{
-                
-                
-                TabView {
-                    if let movies = viewModel.movieData?.data.movies {
-                            ForEach(movies, id: \.id) { movie in
-                          MovieBannerView(movie: movie)
-                                
-                            }
-                  } else {
-                    // Handle empty view (optional)
-                    Text("No movies found")
-                  }
-                }
-                .tabViewStyle(.page)
-                .indexViewStyle(.page(backgroundDisplayMode: .interactive))
-                
-                /*
-                ScrollView(.horizontal) {
-                    HStack{
-                        ForEach(0..<6){i in
-                            MovieBannerView(movie: viewModel.movieData?.data.movies[i] ?? Movie.movieExample)
-                                
-                        }
+        ZStack{
+            Color("AppBackgroundColor")
+                .ignoresSafeArea()
+            ScrollView {
+                Section{
+                    VStack(spacing: 10){
+                        HomeHeaderView()
+                        MovieTabView(viewModel: viewModel)
+                        TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
+                        TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
                     }
+                    .padding(.zero)
                 }
-                */
-                Text(viewModel.movieData?.status ?? "Could not Fetch")
-                Text(viewModel.movieData?.status_message ?? "Could not Fetch")
-            }
-            
-            
-            
-            
-            
+                
+                Section{
+                        
+                }
         
-        }
-        .padding()
-        .onAppear{
-            Task{
-                await viewModel.fetchMovieData()
             }
+            .scrollIndicators(.hidden)
+            .padding()
         }
     }
 }
