@@ -123,24 +123,8 @@ struct MovieBannerView: View {
          .overlay {
              VStack(alignment: .leading){
                  
-                 HStack (spacing: 0){
-                     
-                     Group{
-                         Image(systemName: "star.fill")
-                             .foregroundStyle(Color.white)
-                         
-                         Text("\(movie.rating.formatted())")
-                             .foregroundStyle(Color.white)
-                             .padding(10)
-                             .font(.subheadline)
-                     }
-                     .padding(EdgeInsets())
-                 }
-                 .frame(height: 30)
-                 .background(.ultraThinMaterial)
-                 .padding()
-                 .clipShape(RoundedRectangle(cornerRadius: 100))
-                 .opacity(0.7)
+                BannerRatingView(movie: movie)
+                     .padding()
                 
                  
                  
@@ -151,52 +135,12 @@ struct MovieBannerView: View {
                      .opacity(0.7)
                      .overlay {
                          HStack{
-                             VStack(alignment: .leading, spacing: 0){
-                                 Text(movie.title)
-                                     .font(.title2)
-                                     .fontWeight(.medium)
-                                     .foregroundStyle(Color.white)
-                                     .minimumScaleFactor(0.8)
-                                 HStack{
-                                     ForEach(movie.genres, id: \.self){genre in
-                                         Text(genre)
-                                             .font(.caption)
-                                             .fontWeight(.medium)
-                                             .foregroundStyle(Color.white)
-                                     }
-                                     
-                                 } // Genre
-                                 HStack{
-                                     Capsule()
-                                         .stroke(Color.white)
-                                         .frame(maxWidth: 35, maxHeight: 20 )
-                                         .background{
-                                             Text("\(movie.rating.formatted())")
-                                                 .foregroundStyle(Color.white)
-                                                 .font(.footnote)
-                                         }
-                                     Capsule()
-                                         .stroke(Color.white)
-                                         .frame(width: 50, height: 20)
-                                         .background{
-                                             Text(verbatim: "\(movie.year)")
-                                                 .foregroundStyle(Color.white)
-                                                 .font(.footnote)
-                                         }
-                                 } // Capsules
-                             } //Short Details
+                              
+                             BannerMovieDetailView(movie: movie)
                            
                              Spacer()
                              
-                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                                 Text("Add to Watchlist")
-                                     .foregroundStyle(Color.white)
-                                     .padding(10)
-                                     .font(.subheadline)
-                                     .background(Color.purple)
-                                     .clipShape(.rect(cornerRadius: 10))
-                             }
-                             )
+                            WatchlistButton()
                              
                          }
                          .padding()
