@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Movie : Codable, Hashable {
+struct Movie : Codable, Hashable{
+   
+    
     let id : Int
     let title : String
     let year : Int
@@ -17,16 +19,13 @@ struct Movie : Codable, Hashable {
     let summary : String
     let background_image : String
     let large_cover_image :  String
+    let cast : [Cast]?
     
-    
-    static var movieExample = Movie(id: 100, title: "Dummy Title", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy")
+    static var movieExample = Movie(id: 100, title: "Dummy Title", year: 2020, rating: 8.7, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn, I wanna talk to you again, whent the time will come. Dont be afraid, people are not afraid to be alone, they are afraid of being not alone in the dark", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy", cast: [Cast.castExample,Cast.castExample])
     
     static var movieArrayExample = [
-        Movie(id: 100, title: "Dummy Movie 1", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
-        Movie(id: 200, title: "Dummy Movie 2", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
-        Movie(id: 300, title: "Dummy Movie 3", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
-        Movie(id: 400, title: "Dummy Movie 4", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
-        Movie(id: 500, title: "Dummy Movie 5", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy")
+        Movie(id: 100, title: "Dummy Title", year: 2020, rating: 8.7, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn, I wanna talk to you again, whent the time will come. Dont be afraid, people are not afraid to be alone, they are afraid of being not alone in the dark", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy", cast: [Cast.castExample,Cast.castExample]),
+        Movie(id: 100, title: "Dummy Title", year: 2020, rating: 8.7, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn, I wanna talk to you again, whent the time will come. Dont be afraid, people are not afraid to be alone, they are afraid of being not alone in the dark", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy", cast: [Cast.castExample,Cast.castExample])
     
     
     ]

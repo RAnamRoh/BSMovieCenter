@@ -23,7 +23,7 @@ class MovieInfoViewModel {
     
     func fetchMovieData() async {
         do{
-            movieData = try await networkService.fetchObjectData(from: "https://yts.mx/api/v2/list_movies.json?sort_by=recent&order_by=desc")
+            movieData = try await networkService.fetchObjectData(from: K.BASE_URL)
         }
         catch{
 //            if let networkError = error as? NetworkError {
