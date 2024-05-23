@@ -46,23 +46,25 @@ struct HomeView: View {
             Color("AppBackgroundColor")
                 .ignoresSafeArea()
             ScrollView {
-                Section{
                     VStack(spacing: 10){
                         HomeHeaderView()
-                        MovieTabView(viewModel: viewModel)
+                        MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
                         TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
                         TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
                     }
                     .padding(.zero)
-                }
                 
-                Section{
-                        
-                }
+                
+              
         
             }
             .scrollIndicators(.hidden)
             .padding()
+        }
+        .onAppear{
+            Task{
+                await viewModel.fetchMovieData()
+            }
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie : Codable {
+struct Movie : Codable, Hashable {
     let id : Int
     let title : String
     let year : Int
@@ -21,5 +21,13 @@ struct Movie : Codable {
     
     static var movieExample = Movie(id: 100, title: "Dummy Title", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy")
     
-    static var movieArrayExample = [movieExample, movieExample, movieExample, movieExample, movieExample]
+    static var movieArrayExample = [
+        Movie(id: 100, title: "Dummy Movie 1", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
+        Movie(id: 200, title: "Dummy Movie 2", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
+        Movie(id: 300, title: "Dummy Movie 3", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
+        Movie(id: 400, title: "Dummy Movie 4", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy"),
+        Movie(id: 500, title: "Dummy Movie 5", year: 2020, rating: 2.5, runtime: 127, genres: ["Action", "Adventure"], summary: "Hello Darkness My old Friedn", background_image: "background_image_dummy", large_cover_image: "medium_cover_image_dummy")
+    
+    
+    ]
 }

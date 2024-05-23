@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0887AC2BFF1D1100209021 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0887AB2BFF1D1100209021 /* TestView.swift */; };
+		4A0887AE2BFF25DF00209021 /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0887AD2BFF25DF00209021 /* CustomTabIndicator.swift */; };
 		4A24CC632BF7893E000E4C4B /* MovieInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC622BF7893E000E4C4B /* MovieInfoViewModel.swift */; };
 		4A24CC652BFB2264000E4C4B /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC642BFB2264000E4C4B /* Movie.swift */; };
 		4A24CC692BFB2F19000E4C4B /* MovieBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24CC682BFB2F19000E4C4B /* MovieBannerView.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0887AB2BFF1D1100209021 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		4A0887AD2BFF25DF00209021 /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
 		4A24CC622BF7893E000E4C4B /* MovieInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewModel.swift; sourceTree = "<group>"; };
 		4A24CC642BFB2264000E4C4B /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4A24CC682BFB2F19000E4C4B /* MovieBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBannerView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				4AE4252D2BFC7AB700EF7877 /* MovieTabView.swift */,
 				4AE425352BFC94EA00EF7877 /* PosterView.swift */,
 				4AE425372BFCBBE700EF7877 /* HubView.swift */,
+				4A0887AB2BFF1D1100209021 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 				4A2F545A2BFC648300D68863 /* BannerMovieDetailView.swift */,
 				4A2F545C2BFC65B500D68863 /* BannerYear-RuntimeView.swift */,
 				4AE4252F2BFC7E9400EF7877 /* HomeHeaderView.swift */,
+				4A0887AD2BFF25DF00209021 /* CustomTabIndicator.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -239,6 +245,7 @@
 				4AA48F912BF7748B0059001D /* MovieData.swift in Sources */,
 				4A24CC632BF7893E000E4C4B /* MovieInfoViewModel.swift in Sources */,
 				4A2F54582BFC5DE100D68863 /* BannerRatingView.swift in Sources */,
+				4A0887AE2BFF25DF00209021 /* CustomTabIndicator.swift in Sources */,
 				4A24CC652BFB2264000E4C4B /* Movie.swift in Sources */,
 				4AA48F822BF7734D0059001D /* HomeView.swift in Sources */,
 				4AE425322BFC8D4C00EF7877 /* Util.swift in Sources */,
@@ -248,6 +255,7 @@
 				4A24CC6C2BFB813D000E4C4B /* Shimmering.swift in Sources */,
 				4AE4252E2BFC7AB700EF7877 /* MovieTabView.swift in Sources */,
 				4AE425382BFCBBE700EF7877 /* HubView.swift in Sources */,
+				4A0887AC2BFF1D1100209021 /* TestView.swift in Sources */,
 				4AE425302BFC7E9400EF7877 /* HomeHeaderView.swift in Sources */,
 				4AA48F802BF7734D0059001D /* BSMovieCenterApp.swift in Sources */,
 				4AE425362BFC94EA00EF7877 /* PosterView.swift in Sources */,

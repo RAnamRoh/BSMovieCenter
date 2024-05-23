@@ -8,48 +8,100 @@
 import SwiftUI
 
 struct MovieTabView: View {
-    let viewModel : MovieInfoViewModel
+    let movies : [Movie]
+    let isLoading : Bool
+    @State private var selectedTab = 0
+    let indicatorHeight: CGFloat = 5 // Customize indicator height
+    let indicatorColor = Color.white // Customize indicator color
+    
     var body: some View {
+        
+        
         VStack {
             
             
-            if viewModel.isLoading {
+            if isLoading {
                 Image("medium_cover_image_dummy")
-                 .resizable()
-                 .frame(height: 250)
-                 .clipShape(.rect(cornerRadius: 20))
-                 .redacted(reason: .placeholder)
-                 .shimmering()
+                    .resizable()
+                    .frame(height: 250)
+                    .clipShape(.rect(cornerRadius: 20))
+                    .redacted(reason: .placeholder)
+                    .shimmering()
             }
             else{
                 
                 
-                TabView {
-                    if let movies = viewModel.movieData?.data.movies {
-                            ForEach(movies, id: \.id) { movie in
-                          MovieBannerView(movie: movie)
-                            }
-                  } else {
-                    // Handle empty view (optional)
-                    Text("No movies found")
-                  }
+                TabView(selection: self.$selectedTab) {
+                    if !movies.isEmpty{
+                        ForEach(movies, id: \.id) { movie in
+                            MovieBannerView(movie: movie)
+                                .tag(movie)
+                        }
+                    } else {
+                        // Handle empty view (optional)
+                        Text("No movies found")
+                    }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .tabViewStyle(.automatic)
-                
+                .overlay {
+                    
+                    VStack(alignment: .trailing){
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            HStack (spacing: 0) {
+                                
+                                if !movies.isEmpty{
+                                    ForEach(movies, id: \.self) { index in
+                                        if selectedTab == index.id {
+                                            Capsule()
+                                                .fill(indicatorColor)
+                                                .frame(width: 20, height: indicatorHeight)
+                                                .onTapGesture {
+                                                    print(index)
+                                                }
+                                                
+                                        } else {
+                                            Circle()
+                                                .fill(.white)
+                                                .frame(width: 10, height: 3)
+                                                
+                                        }
+                                    }
+                                }
+                                
+                                
+                            }
+                            .frame(width: 100,height: 10)
+                            .offset(x: 50)
+                            .clipped()
+                            .padding()
+                        }
+                        
+                        
+                    }
+                    
+                    
+                     
+                }
+                .onTapGesture {
+                    //print(selectedTab)
+                }
                 
             }
-     
+            
+           
+            
         }
         .frame(height: 250)
         .onAppear{
-            Task{
-                await viewModel.fetchMovieData()
-            }
+                selectedTab = movies[0].id
         }
+        
     }
 }
 
 #Preview {
-    MovieTabView(viewModel: MovieInfoViewModel())
+    MovieTabView(movies: Movie.movieArrayExample, isLoading: false)
 }
