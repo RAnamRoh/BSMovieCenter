@@ -42,30 +42,33 @@ struct HomeView: View {
     @State var viewModel = MovieInfoViewModel()
     
     var body: some View {
-        ZStack{
-            Color("AppBackgroundColor")
-                .ignoresSafeArea()
-            ScrollView {
-                    VStack(spacing: 10){
-                        HomeHeaderView()
-                        MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
-                        TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
-                        TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
-                    }
-                    .padding(.zero)
-                
-                
-              
-        
+        NavigationStack{
+            ZStack{
+                Color("AppBackgroundColor")
+                    .ignoresSafeArea()
+                ScrollView {
+                        VStack(spacing: 10){
+                            HomeHeaderView()
+                            MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
+                            TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
+                            TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
+                        }
+                        .padding(.zero)
+                    
+                    
+                  
+            
+                }
+                .scrollIndicators(.hidden)
+                .padding()
             }
-            .scrollIndicators(.hidden)
-            .padding()
-        }
-        .onAppear{
-            Task{
-                await viewModel.fetchMovieData()
+            .onAppear{
+                Task{
+                    await viewModel.fetchMovieData()
+                }
             }
         }
+       
     }
 }
 

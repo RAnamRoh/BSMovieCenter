@@ -14,7 +14,7 @@ struct CastView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading){
-                AsyncImage(url: URL(string: cast.url_small_image)){ phase in
+                AsyncImage(url: URL(string: cast.url_small_image ?? K.ImageAssetNames.movieCoverImage)){ phase in
                     if let image = phase.image{
                         
                         image
@@ -23,12 +23,12 @@ struct CastView: View {
                             .clipShape(.rect(cornerRadius: 20))
                             
                     } else if phase.error != nil {
-                        Image(cast.url_small_image)
+                        Image(cast.url_small_image ?? K.ImageAssetNames.defaultCastImage)
                          .resizable()
                          .frame(width: 150, height: 150)
                          .clipShape(.rect(cornerRadius: 20))
                     }else {
-                        Image(cast.url_small_image)
+                        Image(cast.url_small_image ?? K.ImageAssetNames.defaultCastImage)
                          .resizable()
                          .frame(width: 150, height: 150)
                          .clipShape(.rect(cornerRadius: 20))

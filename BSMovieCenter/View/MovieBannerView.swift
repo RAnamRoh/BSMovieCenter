@@ -10,7 +10,7 @@ import SwiftUI
 struct MovieBannerView: View {
     
     var movie : Movie
-    var editing = false
+   // var editing = false
     var body: some View {
        
         
@@ -49,7 +49,7 @@ struct MovieBannerView: View {
                     
                 
             } else if phase.error != nil {
-                Image(movie.large_cover_image)
+                Image(K.ImageAssetNames.movieCoverImage)
                  .resizable()
                  .frame(height: 250)
                  .overlay {
@@ -79,7 +79,7 @@ struct MovieBannerView: View {
                  }
                  .clipShape(.rect(cornerRadius: 20))
             }else {
-                Image(movie.large_cover_image)
+                Image(K.ImageAssetNames.movieCoverImage)
                                 .resizable()
                                 .frame(width: 50, height: 50)
                                 .padding()
@@ -88,7 +88,7 @@ struct MovieBannerView: View {
         }
         
         
-      
+      /*
         if editing {
             Image(movie.large_cover_image)
              .resizable()
@@ -121,7 +121,7 @@ struct MovieBannerView: View {
              .clipShape(.rect(cornerRadius: 20))
         }
         
-        
+       */
             
     }
 }

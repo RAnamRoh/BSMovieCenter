@@ -10,27 +10,29 @@ import SwiftUI
 struct HubView: View {
     var body: some View {
         
-        
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "house")
-                }
-            Text("Search View")
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                }
-            Text("WatchList")
-                .tabItem {
-                    Image(systemName: "list.dash")
-                }
-            
-            Text("Setting")
-                .tabItem {
-                    Image(systemName: "gearshape")
-                }
-            
+        NavigationStack{
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
+                SearchMovieView()
+                    .tabItem {
+                        Image(systemName: "magnifyingglass")
+                    }
+                Text("WatchList")
+                    .tabItem {
+                        Image(systemName: "list.dash")
+                    }
+                
+                Text("Setting")
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                    }
+                
+            }
         }
+  
         
     }
 }

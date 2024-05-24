@@ -1,30 +1,33 @@
 //
-//  MovieInfoViewModel.swift
+//  SearchMovieViewModel.swift
 //  BSMovieCenter
 //
-//  Created by BS00834 on 17/5/24.
+//  Created by BS00834 on 24/5/24.
 //
 
 import Foundation
 
 @Observable
-class MovieInfoViewModel {
+class SearchMovieViewModel{
     
     let networkService : NetworkService
     
     var movieData : MovieData?
     
+    var movieList : [Movie]?
+    
     var isLoading = true
     
-    init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil) {
+    init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil, isLoading: Bool = true) {
         self.networkService = networkService
         self.movieData = movieData
+        self.isLoading = isLoading
     }
     
     @MainActor
-    func fetchMovieData() async {
+    func SearchMovieData(movieName : String) async {
         do{
-            movieData = try await networkService.fetchObjectData(from: K.BASE_URL)
+            movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(movieName)")
         }
         catch{
 //            if let networkError = error as? NetworkError {
@@ -45,6 +48,7 @@ class MovieInfoViewModel {
         if let movieData = movieData {
           // Data fetched successfully, update UI
           isLoading = false
+        movieList = movieData.data.movies
           // Use movieData for further processing
         } else {
           // Handle network or parsing error
@@ -53,7 +57,5 @@ class MovieInfoViewModel {
         }
         
     }
-    
-    
     
 }

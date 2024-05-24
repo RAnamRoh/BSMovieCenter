@@ -10,7 +10,7 @@ import SwiftUI
 struct PosterView: View {
     
     var movie : Movie
-    
+   @State var isLoading = true
     var body: some View {
         VStack(alignment : .leading, spacing: 0){
            
@@ -35,7 +35,7 @@ struct PosterView: View {
                         .clipShape(.rect(cornerRadius: 15))
                 }else {
                     VStack{
-                        Image("medium_cover_image_dummy")
+                        Image(K.ImageAssetNames.movieCoverImage)
                             .resizable()
                             .scaledToFit()
                             .overlay {

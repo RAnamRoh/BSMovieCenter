@@ -16,7 +16,7 @@ class MovieDetailViewModel {
     
     var movieDetail : MovieDetail?
     
-    var movie : Movie?
+    //var movie : Movie?
     
     var isLoading = true
     
@@ -29,12 +29,14 @@ class MovieDetailViewModel {
     
     func fetchMovie(id : Int) async {
         do{
-            movieDetail = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?movie_id=\(id)&with_cast=true")
-            movie = movieDetail?.data.movie
+            movieDetail = try await networkService.fetchObjectData(from: "\(K.MOVIE_DETAILS_URL)?movie_id=\(id)&with_cast=true")
+            
         }
         catch{
             print("Error In MovieDetailsViewModel : \(error.localizedDescription)")
         }
+        isLoading = false
+       
     }
     
     

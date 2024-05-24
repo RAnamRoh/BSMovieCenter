@@ -27,7 +27,11 @@ struct TopPickView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 15){
                     ForEach(movieArray, id: \.id){ movie in
-                        PosterView(movie: movie)
+                        NavigationLink(destination: MovieDetailView(movieId: movie.id)) {
+                            PosterView(movie: movie)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
                     }
                 }
             }

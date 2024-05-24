@@ -33,7 +33,7 @@ class NetworkService{
 //    }
     
     @MainActor
-    func fetchObjectData<T : Codable>(from url : String) async throws ->  T {
+    func fetchObjectData<T : Codable>(from url : String) async throws ->  T? {
         
         guard let url = URL(string: url) else {
             throw NetworkError.invalidUrl
@@ -44,13 +44,21 @@ class NetworkService{
         do {
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             
+          //  print(String(data: data, encoding: .utf8))
+            
             guard (200...299) ~= (response as! HTTPURLResponse).statusCode else {
                    throw NetworkError.invalidData// Example for non-2xx responses
                  }
-            let decodedObject = try JSONDecoder().decode(T.self, from: data)
-
-            return decodedObject
             
+            do {
+                let decodedObject = try JSONDecoder().decode(T.self, from: data)
+                return decodedObject
+            }
+            catch {
+                print("Decoding Problem")
+            }
+            
+            return nil
         }
     }
     

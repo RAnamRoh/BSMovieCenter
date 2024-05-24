@@ -10,7 +10,7 @@ import Foundation
 struct Cast : Codable , Hashable{
     let name : String
     let character_name : String
-    let url_small_image : String
+    let url_small_image : String?
     
     
     
