@@ -27,6 +27,8 @@
 		4A68176D2BFF7CB30065C711 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A68176C2BFF7CB30065C711 /* MovieDetailViewModel.swift */; };
 		4A68176F2BFF7D440065C711 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A68176E2BFF7D430065C711 /* MovieDetail.swift */; };
 		4A6817712BFF815F0065C711 /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6817702BFF815F0065C711 /* CastView.swift */; };
+		4A6D51142C073FEC000DC300 /* WatchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D51132C073FEC000DC300 /* WatchListViewModel.swift */; };
+		4A6D51162C0747ED000DC300 /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D51152C0747ED000DC300 /* WatchListView.swift */; };
 		4AA48F802BF7734D0059001D /* BSMovieCenterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */; };
 		4AA48F822BF7734D0059001D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA48F812BF7734D0059001D /* HomeView.swift */; };
 		4AA48F842BF7734E0059001D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA48F832BF7734E0059001D /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		4A68176C2BFF7CB30065C711 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
 		4A68176E2BFF7D430065C711 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		4A6817702BFF815F0065C711 /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
+		4A6D51132C073FEC000DC300 /* WatchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewModel.swift; sourceTree = "<group>"; };
+		4A6D51152C0747ED000DC300 /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
 		4AA48F7C2BF7734D0059001D /* BSMovieCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BSMovieCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSMovieCenterApp.swift; sourceTree = "<group>"; };
 		4AA48F812BF7734D0059001D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				4A0887AF2BFF4EEC00209021 /* MovieDetailView.swift */,
 				4A6817702BFF815F0065C711 /* CastView.swift */,
 				4A1999232C00A01700A9026B /* SearchMovieView.swift */,
+				4A6D51152C0747ED000DC300 /* WatchListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				4A24CC622BF7893E000E4C4B /* MovieInfoViewModel.swift */,
 				4A68176C2BFF7CB30065C711 /* MovieDetailViewModel.swift */,
 				4A1999292C00AFD900A9026B /* SearchMovieViewModel.swift */,
+				4A6D51132C073FEC000DC300 /* WatchListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				4A6817672BFF61A30065C711 /* MovieRatingDetailView.swift in Sources */,
 				4AE4252E2BFC7AB700EF7877 /* MovieTabView.swift in Sources */,
 				4A19992A2C00AFD900A9026B /* SearchMovieViewModel.swift in Sources */,
+				4A6D51142C073FEC000DC300 /* WatchListViewModel.swift in Sources */,
 				4AE425382BFCBBE700EF7877 /* HubView.swift in Sources */,
 				4A0887AC2BFF1D1100209021 /* TestView.swift in Sources */,
 				4AE425302BFC7E9400EF7877 /* HomeHeaderView.swift in Sources */,
@@ -296,6 +303,7 @@
 				4A6817712BFF815F0065C711 /* CastView.swift in Sources */,
 				4A68176F2BFF7D440065C711 /* MovieDetail.swift in Sources */,
 				4A68176D2BFF7CB30065C711 /* MovieDetailViewModel.swift in Sources */,
+				4A6D51162C0747ED000DC300 /* WatchListView.swift in Sources */,
 				4AE425362BFC94EA00EF7877 /* PosterView.swift in Sources */,
 				4A6817692BFF769F0065C711 /* Cast.swift in Sources */,
 				4A68176B2BFF7C560065C711 /* Constants.swift in Sources */,

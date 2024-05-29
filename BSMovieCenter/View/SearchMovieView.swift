@@ -30,7 +30,7 @@ struct SearchMovieView: View {
                         
                         HStack{
                             Text("Search.")
-                                .font(.title)
+                                .font(.largeTitle)
                                 .fontWeight(.semibold)
                             
                             Spacer()
@@ -102,7 +102,7 @@ struct SearchMovieView: View {
                                         ForEach(movieList, id: \.id){ movie in
                                             
                                             NavigationLink(destination: MovieDetailView(movieId: movie.id)) {
-                                                ListCellView(movie: movie)
+                                                ListCellView(movie: movie, showWatchlistButton: true)
                                             }
                                             .buttonStyle(PlainButtonStyle())
                                             

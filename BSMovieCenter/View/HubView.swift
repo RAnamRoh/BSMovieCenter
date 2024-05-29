@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HubView: View {
+    
+    @StateObject var watchListViewModel : WatchListViewModel = WatchListViewModel()
+    
     var body: some View {
         
         NavigationStack{
@@ -20,7 +23,7 @@ struct HubView: View {
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                     }
-                Text("WatchList")
+                WatchListView()
                     .tabItem {
                         Image(systemName: "list.dash")
                     }
@@ -31,12 +34,18 @@ struct HubView: View {
                     }
                 
             }
+            
         }
+       .environmentObject(watchListViewModel)
   
         
     }
 }
 
 #Preview {
-    HubView()
+    NavigationStack{
+        HubView()
+    }
+    .environmentObject(WatchListViewModel())
+    
 }

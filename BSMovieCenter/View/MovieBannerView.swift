@@ -38,7 +38,7 @@ struct MovieBannerView: View {
                                       
                                         Spacer()
                                         
-                                       WatchlistButton()
+                                        WatchlistButton(movie: movie)
                                         
                                     }
                                     .padding()
@@ -70,7 +70,7 @@ struct MovieBannerView: View {
                                    
                                      Spacer()
                                      
-                                    WatchlistButton()
+                                     WatchlistButton(movie: movie)
                                      
                                  }
                                  .padding()

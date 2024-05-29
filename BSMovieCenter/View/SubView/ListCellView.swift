@@ -10,7 +10,7 @@ import SwiftUI
 struct ListCellView: View {
     
     let movie : Movie
-    
+    var showWatchlistButton : Bool
     var body: some View {
         
      
@@ -69,7 +69,10 @@ struct ListCellView: View {
                         Text(movie.rating.formatted())
                     }
                     Spacer()
-                    WatchlistButton()
+                    if showWatchlistButton{
+                        WatchlistButton(movie: movie)
+                    }
+                    
                 }
                 .padding(.top,20)
             }
@@ -83,5 +86,5 @@ struct ListCellView: View {
 }
 
 #Preview {
-    ListCellView(movie: Movie.movieExample)
+    ListCellView(movie: Movie.movieExample, showWatchlistButton: true)
 }

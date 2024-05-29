@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct WatchlistButton: View {
+    
+    @EnvironmentObject var watchListViewModel : WatchListViewModel
+    
+    let movie : Movie
+    
     var body: some View {
-        Button(action: {}) {
+        Button(action: {
+            watchListViewModel.addMovie(movie: movie)
+        }) {
             Text("Add to Watchlist")
                 .foregroundStyle(Color.white)
                 .padding(10)
@@ -21,5 +28,6 @@ struct WatchlistButton: View {
 }
 
 #Preview {
-    WatchlistButton()
+
+    WatchlistButton(movie: Movie.movieExample)
 }

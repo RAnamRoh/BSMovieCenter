@@ -12,6 +12,7 @@ struct MovieDetailView: View {
     let movieId : Int
     @State var movie = Movie.movieExample
     @State var viewModel = MovieDetailViewModel()
+    @EnvironmentObject var watchListViewModel : WatchListViewModel
     
     var body: some View {
         
@@ -112,7 +113,11 @@ struct MovieDetailView: View {
                                 }
                                 
                                 VStack{
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        
+                                        watchListViewModel.addMovie(movie: movie)
+                                        
+                                    }) {
                                         Text("Add to Watchlist")
                                             .foregroundStyle(Color.white)
                                             .frame(maxWidth: .infinity)
@@ -185,6 +190,8 @@ struct MovieDetailView: View {
                 }
                 
             }
+            .navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
         }
        
         
