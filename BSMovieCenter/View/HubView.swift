@@ -28,7 +28,7 @@ struct HubView: View {
                         Image(systemName: "list.dash")
                     }
                 
-                Text("Setting")
+                SettingsView()
                     .tabItem {
                         Image(systemName: "gearshape")
                     }

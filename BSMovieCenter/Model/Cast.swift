@@ -13,6 +13,5 @@ struct Cast : Codable , Hashable{
     let url_small_image : String?
     
     
-    
     static var castExample = Cast(name: "Bruce Willis", character_name: "Split", url_small_image: "cast_Image")
 }

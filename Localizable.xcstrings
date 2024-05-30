@@ -1,0 +1,200 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "← Right-to-left layout direction" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "0.0" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Add to Watchlist" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ওয়াচলিস্টে যোগ করুন"
+          }
+        }
+      }
+    },
+    "BN" : {
+
+    },
+    "Cast" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "চলচ্চিত্র অভিনয়শিল্পীরা "
+          }
+        }
+      }
+    },
+    "Dark Mode" : {
+
+    },
+    "EN" : {
+
+    },
+    "Loading..." : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "লোড হচ্ছে"
+          }
+        }
+      }
+    },
+    "No movies found" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "কোন সিনেমা পাওয়া যায়নি"
+          }
+        }
+      }
+    },
+    "Overall Rating" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "সামগ্রিক রেটিং"
+          }
+        }
+      }
+    },
+    "Rakibul Anam Rohid." : {
+
+    },
+    "Search." : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অনুসন্ধান করুন."
+          }
+        }
+      }
+    },
+    "Search..." : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অনুসন্ধান করুন."
+          }
+        }
+      }
+    },
+    "See All" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "সবগুলো দেখ"
+          }
+        }
+      }
+    },
+    "Selected Language" : {
+
+    },
+    "Setting" : {
+
+    },
+    "SwiftUI Shimmer" : {
+
+    },
+    "Theme" : {
+
+    },
+    "Top Picks" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "শীর্ষ বাছাই"
+          }
+        }
+      }
+    },
+    "WatchList" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ওয়াচলিস্ট"
+          }
+        }
+      }
+    },
+    "Welcome Back," : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "স্বাগত"
+          }
+        }
+      }
+    },
+    "Your Rating" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "আপনার রেটিং"
+          }
+        }
+      }
+    },
+    "שלום" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "مرحبًا" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
