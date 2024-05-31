@@ -10,10 +10,19 @@ import SwiftUI
 @main
 struct BSMovieCenterApp: App {
     @State @AppStorage("appLanguage") private var appLanguage : String = "en"
+    @AppStorage("darkModeEnabled") var darkModeEnabled : Bool = false
+    @State private var colorScheme: ColorScheme = .light
     var body: some Scene {
         WindowGroup {
             HubView()
+                .onChange(of: darkModeEnabled, { _, _ in
+                    colorScheme = darkModeEnabled ? .dark : .light
+                })
+                .onAppear{
+                    colorScheme = darkModeEnabled ? .dark : .light
+                }
                 .environment(\.locale, Locale(identifier: appLanguage))
+                .environment(\.colorScheme, colorScheme)
         }
         
     }

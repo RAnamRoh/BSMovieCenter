@@ -10,13 +10,21 @@ import SwiftUI
 struct SettingsView: View {
     
     @Environment(\.locale) var locale
-   @State @AppStorage("appLanguage") private var appLanguage : String = "en"
+    @AppStorage("appLanguage") private var appLanguage : String = "en"
+    @State private var selectedLanguage : String = UserDefaults.standard.string(forKey: "appLanguage") ?? "en"
     @State var languageArray : [String] = ["English", "Bangla"]
     
-    @State var selectedLanguage : Bool = true
+    @State var showRestartAlert : Bool = false
+    
+    enum Language: String, CaseIterable {
+        case english = "en"
+        case bangla = "bn" // You might need to adjust the code for Bangla based on your specific dialect
+    }
     
     
-    @State var darkModeOn = false
+    
+    @AppStorage("darkModeEnabled") var darkModeEnabled : Bool = false
+    
     
     var body: some View {
         VStack{
@@ -28,36 +36,80 @@ struct SettingsView: View {
             }
             .padding(.horizontal,20)
             Form{
-                Section {
-                    HStack{
-                        Text("Selected Language")
-                        Spacer()
-                        
-                        Button("EN") {
-                           appLanguage = "en"
+                Section("Select Language") {
+                    
+                    /*
+                     HStack{
+                     Text("Selected Language")
+                     Spacer()
+                     
+                     Button("EN") {
+                     appLanguage = "en"
+                     }
+                     
+                     Button("BN") {
+                     appLanguage = "bn"
+                     }
+                     }
+                     */
+                    Button(action: {
+                        self.selectLanguage("en")
+                    }) {
+                        HStack {
+                            Text("English")
+                            Spacer()
+                            if selectedLanguage == "en" {
+                                Image(systemName: "checkmark")
+                                    .foregroundColor(.blue)
+                            }
                         }
-                        .buttonStyle(DefaultButtonStyle())
-                        Button("BN") {
-                           appLanguage = "bn"
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                           
-                        
-                        
                     }
+                    .foregroundColor(selectedLanguage == "en" ? .primary : .secondary)
+                    .listRowBackground(selectedLanguage == "en" ? Color.blue.opacity(0.2) : Color.clear)
+                    
+                    Button(action: {
+                                         self.selectLanguage("bn")
+                                     }) {
+                                         HStack {
+                                             Text("Bangla")
+                                             Spacer()
+                                             if selectedLanguage == "bn" {
+                                                 Image(systemName: "checkmark")
+                                                     .foregroundColor(.blue)
+                                             }
+                                         }
+                                     }
+                                     .foregroundColor(selectedLanguage == "bn" ? .primary : .secondary)
+                                     .listRowBackground(selectedLanguage == "bn" ? Color.blue.opacity(0.2) : Color.clear)
+                    
+                    
+                    
                     
                 }
                 
                 Section("Theme") {
-                    Toggle("Dark Mode", isOn: $darkModeOn)
+                    Toggle("Dark Mode", isOn: $darkModeEnabled)
                 }
             }
+            .alert(isPresented: $showRestartAlert) {
+                           Alert(
+                               title: Text("Restart Required"),
+                               message: Text("The app needs to restart to apply the new language."),
+                               dismissButton: .default(Text("OK"), action: {
+                                   exit(0)
+                               })
+                           )
+                       }
         }
         
     }
     
-    func changeLanguage(){
-        
+    private func selectLanguage(_ language: String) {
+        if selectedLanguage != language {
+            selectedLanguage = language
+            appLanguage = selectedLanguage
+            showRestartAlert = true
+        }
     }
 }
 

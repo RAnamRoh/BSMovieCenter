@@ -48,6 +48,7 @@ struct SearchMovieView: View {
                           TextField("Search...", text: $searchedText)
                                 .autocorrectionDisabled()
                                 .textInputAutocapitalization(.never)
+                                
                             .overlay(
                               HStack {
                                 Spacer()
@@ -64,9 +65,13 @@ struct SearchMovieView: View {
                             )
                             .onChange(of: searchedText) { _ , newValue in
                                 if !newValue.isEmpty{
-                                    Task{
-                                      await viewModel.SearchMovieData(movieName: newValue)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                                        Task{
+                                          await viewModel.SearchMovieData(movieName: newValue)
+                                        }
                                     }
+                                    
+                                    
                                     if !viewModel.isLoading{
                                         if let gotMovie = viewModel.movieList{
                                             movieList = gotMovie
@@ -86,7 +91,7 @@ struct SearchMovieView: View {
                             
                         }
                         .font(.title2)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.primary)
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 60)
                         .background(Color.gray.opacity(0.2))
@@ -134,6 +139,7 @@ struct SearchMovieView: View {
 #Preview {
     SearchMovieView()
 }
+
 
 
 /*

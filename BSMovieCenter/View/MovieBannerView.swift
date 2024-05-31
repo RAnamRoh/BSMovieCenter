@@ -78,12 +78,40 @@ struct MovieBannerView: View {
                      }//Vstack
                  }
                  .clipShape(.rect(cornerRadius: 20))
+                 .redacted(reason: .placeholder)
+                 .shimmering()
             }else {
                 Image(K.ImageAssetNames.movieCoverImage)
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .padding()
-                                .aspectRatio(contentMode: .fill)
+                 .resizable()
+                 .frame(height: 250)
+                 .overlay {
+                     VStack(alignment: .leading){
+                         
+                        BannerRatingView(movie: movie)
+                             .padding()
+                        
+                         Spacer()
+                         Rectangle()
+                             .frame(maxWidth: .infinity, maxHeight: 100)
+                             .background(.ultraThinMaterial)
+                             .opacity(0.5)
+                             .overlay {
+                                 HStack{
+                                      
+                                     BannerMovieDetailView(movie: movie)
+                                   
+                                     Spacer()
+                                     
+                                     WatchlistButton(movie: movie)
+                                     
+                                 }
+                                 .padding()
+                             }
+                     }//Vstack
+                 }
+                 .clipShape(.rect(cornerRadius: 20))
+                 .redacted(reason: .placeholder)
+                 .shimmering()
             }
         }
         

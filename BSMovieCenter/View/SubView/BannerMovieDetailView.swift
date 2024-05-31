@@ -26,7 +26,7 @@ struct BannerMovieDetailView: View {
                 }
             }
             
-            BannerYear_RuntimeView(movie: movie)
+            BannerYear_RuntimeView(movie: movie, onTabView: true)
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 0, trailing: 0))
         
         }

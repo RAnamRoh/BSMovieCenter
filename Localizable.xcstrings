@@ -41,8 +41,15 @@
         }
       }
     },
-    "BN" : {
-
+    "Bangla" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "বাংলা"
+          }
+        }
+      }
     },
     "Cast" : {
       "localizations" : {
@@ -55,10 +62,24 @@
       }
     },
     "Dark Mode" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ডার্ক মোড"
+          }
+        }
+      }
     },
-    "EN" : {
-
+    "English" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ইংরেজি"
+          }
+        }
+      }
     },
     "Loading..." : {
       "localizations" : {
@@ -70,12 +91,32 @@
         }
       }
     },
+    "Movie Not Found" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "মুভি খুঁজে পাওয়া যায়নি"
+          }
+        }
+      }
+    },
     "No movies found" : {
       "localizations" : {
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "কোন সিনেমা পাওয়া যায়নি"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ঠিক আছে"
           }
         }
       }
@@ -91,7 +132,24 @@
       }
     },
     "Rakibul Anam Rohid." : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Restart Required" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "রিস্টার্ট প্রয়োজন"
+          }
+        }
+      }
     },
     "Search." : {
       "localizations" : {
@@ -123,17 +181,55 @@
         }
       }
     },
-    "Selected Language" : {
-
+    "Select Language" : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ভাষা নির্বাচন কর"
+          }
+        }
+      }
     },
     "Setting" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "সেটিংস"
+          }
+        }
+      }
     },
     "SwiftUI Shimmer" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "The app needs to restart to apply the new language." : {
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নতুন ভাষা প্রয়োগ করতে অ্যাপটিকে পুনরায় চালু করতে হবে।"
+          }
+        }
+      }
     },
     "Theme" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "থিম"
+          }
+        }
+      }
     },
     "Top Picks" : {
       "localizations" : {

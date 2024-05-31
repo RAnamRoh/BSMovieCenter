@@ -47,7 +47,7 @@ struct HomeView: View {
                 Color("AppBackgroundColor")
                     .ignoresSafeArea()
                 ScrollView {
-                        VStack(spacing: 10){
+                      let homeView =  VStack(spacing: 10){
                             HomeHeaderView()
                             MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
                             TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
@@ -55,8 +55,14 @@ struct HomeView: View {
                         }
                         .padding(.zero)
                     
-                    
-                  
+                    if viewModel.isLoading{
+                        homeView
+                            .redacted(reason: .placeholder)
+                            .shimmering()
+                    }else {
+                        homeView
+                    }
+ 
             
                 }
                 .scrollIndicators(.hidden)

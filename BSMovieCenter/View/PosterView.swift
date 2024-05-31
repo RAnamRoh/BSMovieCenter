@@ -65,7 +65,6 @@ struct PosterView: View {
                 .lineLimit(1)
                 .truncationMode(.tail)
             
-                .preferredColorScheme(.dark)
             
             HStack{
                 Text(String(movie.year))

@@ -23,12 +23,11 @@ struct HomeHeaderView: View {
                 .padding()
                 
         }
-        .foregroundStyle(Color.white)
+        .foregroundStyle(.primary)
         
     }
 }
 
 #Preview {
     HomeHeaderView()
-        .preferredColorScheme(.dark)
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct BannerYear_RuntimeView: View {
     
     let movie : Movie
-    
+    let onTabView : Bool
     var body: some View {
         HStack{
           
@@ -19,21 +19,21 @@ struct BannerYear_RuntimeView: View {
                 .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
                 .background(
                 Capsule()
-                    .stroke(Color.white , lineWidth: 1)
+                    .stroke(onTabView ? Color.white : .primary, lineWidth: 1)
                 )
             Text(Util.minutesToHoursAndMinutes(movie.runtime))
                 .padding(EdgeInsets(top: 2, leading: 5, bottom: 2, trailing: 5))
                 .background(
                 Capsule()
-                    .stroke(Color.white , lineWidth: 1)
+                    .stroke(onTabView ? Color.white : .primary , lineWidth: 1)
                 )
             
         } // Capsules
-        .foregroundStyle(Color.white)
+        .foregroundStyle(onTabView ? Color.white : .primary)
         .font(.caption)
     }
 }
 
 #Preview {
-    BannerYear_RuntimeView(movie: Movie.movieExample)
+    BannerYear_RuntimeView(movie: Movie.movieExample, onTabView: false)
 }

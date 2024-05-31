@@ -46,10 +46,10 @@ struct ListCellView: View {
                         Text(genre)
                             .font(.caption)
                             .fontWeight(.regular)
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(.primary)
                         if genre != movie.genres.last {
                             Circle()
-                                .foregroundStyle(Color.white)
+                                .foregroundStyle(.primary)
                                 .frame(width: 3)
                         }
                     }
@@ -60,7 +60,7 @@ struct ListCellView: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                BannerYear_RuntimeView(movie: movie)
+                BannerYear_RuntimeView(movie: movie, onTabView: false)
                 Spacer()
                 HStack{
                     HStack{

@@ -55,10 +55,10 @@ struct MovieDetailView: View {
                         }
                         .blur(radius: 30)
                         
-                        ScrollView{
+                       let movieDetailScroll = ScrollView{
                             
                             
-                            VStack() {
+                            VStack(alignment: .leading) {
                                 AsyncImage(url: URL(string: movie.large_cover_image)){ phase in
                                     if let image = phase.image{
                                         
@@ -92,10 +92,10 @@ struct MovieDetailView: View {
                                             Text(genre)
                                                 .font(.callout)
                                                 .fontWeight(.regular)
-                                                .foregroundStyle(Color.white)
+                                                .foregroundStyle(.primary)
                                             if genre != movie.genres.last {
                                                 Circle()
-                                                    .foregroundStyle(Color.white)
+                                                    .foregroundStyle(.primary)
                                                     .frame(width: 3)
                                             }
                                         }
@@ -104,7 +104,7 @@ struct MovieDetailView: View {
                                     Text(movie.title)
                                         .font(.title)
                                         .fontWeight(.semibold)
-                                    BannerYear_RuntimeView(movie: movie)
+                                    BannerYear_RuntimeView(movie: movie, onTabView: false)
                                     
                                     Text(movie.description_full)
                                         .lineLimit(3)
@@ -160,6 +160,13 @@ struct MovieDetailView: View {
                         }
                         .padding()
                         .scrollIndicators(.hidden)
+                        
+                        if viewModel.movieDetail?.data.movie != nil {
+                            movieDetailScroll
+                        }else{
+                            Text("Movie Not Found")
+                        }
+                        
                     }else {
                         VStack{
                             Rectangle()
