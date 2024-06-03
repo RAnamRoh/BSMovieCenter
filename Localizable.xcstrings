@@ -41,6 +41,9 @@
         }
       }
     },
+    "Apply" : {
+
+    },
     "Bangla" : {
       "localizations" : {
         "bn" : {
@@ -50,6 +53,9 @@
           }
         }
       }
+    },
+    "By Genre" : {
+
     },
     "Cast" : {
       "localizations" : {
@@ -200,6 +206,15 @@
           }
         }
       }
+    },
+    "Sort And Filter" : {
+
+    },
+    "Sort By" : {
+
+    },
+    "SortBy" : {
+
     },
     "SwiftUI Shimmer" : {
       "localizations" : {

@@ -59,6 +59,8 @@ struct MovieDetailView: View {
                             
                             
                             VStack(alignment: .leading) {
+                                
+                                
                                 AsyncImage(url: URL(string: movie.large_cover_image)){ phase in
                                     if let image = phase.image{
                                         

@@ -14,6 +14,8 @@ struct SearchMovieView: View {
     @State var viewModel = SearchMovieViewModel()
     @State var movieList : [Movie] = []
     @State var showProgress = false
+    @State var filterSheetPresented : Bool = false
+    @AppStorage("darkModeEnabled") var darkModeEnabled : Bool = false
     
     var body: some View {
         
@@ -35,12 +37,17 @@ struct SearchMovieView: View {
                             
                             Spacer()
                             
-                            Button(action: {}, label: {
+                            Button(action: {
+                                
+                                filterSheetPresented.toggle()
+                                
+                            }, label: {
                                 Image(systemName: "slider.vertical.3")
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.primary)
                                     .font(.title2)
                                     .fontWeight(.semibold)
                             })
+                            .buttonStyle(PlainButtonStyle())
                         }
                         
                         HStack {
@@ -63,30 +70,35 @@ struct SearchMovieView: View {
                                 }
                               }
                             )
-                            .onChange(of: searchedText) { _ , newValue in
-                                if !newValue.isEmpty{
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                                        Task{
-                                          await viewModel.SearchMovieData(movieName: newValue)
-                                        }
-                                    }
-                                    
-                                    
-                                    if !viewModel.isLoading{
-                                        if let gotMovie = viewModel.movieList{
-                                            movieList = gotMovie
-                                        }
-                                        showProgress = false
-                                    } else{
-                                        showProgress = true
-                                    }
-                                    
-                                }
-                                else{
-                                    movieList = []
-                                    showProgress = false
-                                }
-                            }
+                          
+                             .onChange(of: searchedText) { _ , newValue in
+                                 if !newValue.isEmpty{
+                                     
+                             
+                                      DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                                          Task{
+                                            await viewModel.SearchMovieData(movieName: newValue)
+                                          }
+                                      }
+                                      
+                                      
+                                      if !viewModel.isLoading{
+                                          if let gotMovie = viewModel.movieList{
+                                              movieList = gotMovie
+                                          }
+                                          showProgress = false
+                                      } else{
+                                          showProgress = true
+                                      }
+                                   
+                                 }
+                                 else{
+                                     movieList = []
+                                     showProgress = false
+                                 }
+                             }
+                             
+                           
                      
                             
                         }
@@ -95,7 +107,7 @@ struct SearchMovieView: View {
                         .padding()
                         .frame(maxWidth: .infinity, maxHeight: 60)
                         .background(Color.gray.opacity(0.2))
-                        .cornerRadius(30)
+                        .cornerRadius(25)
                         
                         ZStack(alignment: .center){
                             if showProgress{
@@ -110,19 +122,19 @@ struct SearchMovieView: View {
                                                 ListCellView(movie: movie, showWatchlistButton: true)
                                             }
                                             .buttonStyle(PlainButtonStyle())
-                                            
-                                            
                                         }
                                     }
-                                    
                                 }
                             }
                         }
+                        .sheet(isPresented: $filterSheetPresented, content: {
+                            FilterView(searchViewModel: viewModel, movieList: $movieList, searchedText: $searchedText)
+                                .environment(\.colorScheme, darkModeEnabled ? .dark : .light)
+                        })
+                        
+                        
                         Spacer()
-                      
-                     
-                        
-                        
+     
                     }
                     .padding()
                     
@@ -133,6 +145,33 @@ struct SearchMovieView: View {
           
         }
       
+    }
+    
+    
+    
+    private func debounceSearch(text: String, for duration: Double) {
+      let subject = PassthroughSubject<String, Never>()
+      var timer: Timer?
+      var cancellables = Set<AnyCancellable>()
+
+      subject
+            .debounce(for: .seconds(duration), scheduler: RunLoop.main) // Use DispatchQueue.main
+        .sink { newValue in
+          Task {
+            await viewModel.SearchMovieData(movieName: newValue)
+            // Handle search results and errors (update movieList, showProgress, errorMessage)
+           
+              movieList = viewModel.movieList ?? []
+              showProgress = false
+       
+            
+          }
+        }
+        .store(in: &cancellables)
+
+      timer = Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { _ in
+        subject.send(text)
+      }
     }
 }
 
