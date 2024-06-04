@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+//import SwiftUI
 @Observable
 class SearchMovieViewModel{
     
@@ -18,7 +18,9 @@ class SearchMovieViewModel{
     
    
     
-    var isLoading = true
+    var isLoading : Bool = true
+    
+    var noMovieFound : Bool = false
     
     init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil, isLoading: Bool = true) {
         self.networkService = networkService
@@ -28,23 +30,27 @@ class SearchMovieViewModel{
     
     @MainActor
     func SearchMovieData(movieName : String) async {
-       movieList = []
+        movieList = []
+        noMovieFound = false
+        isLoading = true
         do{
             movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(movieName)")
+       
         }
         catch{
-//            if let networkError = error as? NetworkError {
-//                switch networkError {
-//                case .invalidUrl :
-//                    print("Invalid URL")
-//                case .invalidData:
-//                    print("Invalid Data")
-//                case .decodingError:
-//                    print("Decoding Problem")
-//                }
-//            }
+            if let networkError = error as? NetworkError {
+                switch networkError {
+                case .invalidUrl :
+                    print("Invalid URL")
+                case .invalidData:
+                    print("Invalid Data")
+                case .decodingError:
+                    noMovieFound = true
+                    print("Decoding Problem Satoru Gojo Bhai")
+                }
+            }
             
-            print("Error From ViewMOdel")
+            print("Error From ViewMOdel Search Movie")
             
         }
         
@@ -59,28 +65,38 @@ class SearchMovieViewModel{
           // Show error message to the user
         }
         
+
+        
     }
     
     @MainActor
-    func sortBy(query : SortMovieBy) async {
+    func sortBy(searchedMovie: String?,  query : SortMovieBy) async {
         
         movieList = []
-        print("Search Movie Called")
+        noMovieFound = false
+        print("Sorted Movie Called")
         print("moviesList Count \(movieList?.count)")
         do{
-            movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?sort_by=\(query.rawValue)")
+            if let searchedMovie = searchedMovie{
+                movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(searchedMovie)&sort_by=\(query.rawValue)")
+            }
+            else{
+                movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?sort_by=\(query.rawValue)")
+            }
+            
         }
         catch{
-//            if let networkError = error as? NetworkError {
-//                switch networkError {
-//                case .invalidUrl :
-//                    print("Invalid URL")
-//                case .invalidData:
-//                    print("Invalid Data")
-//                case .decodingError:
-//                    print("Decoding Problem")
-//                }
-//            }
+            if let networkError = error as? NetworkError {
+                switch networkError {
+                case .invalidUrl :
+                    print("Invalid URL")
+                case .invalidData:
+                    print("Invalid Data")
+                case .decodingError:
+                    
+                    print("Decoding Problem Bhai re Bhaii from SOrted")
+                }
+            }
             
             print("Error From SearchMovie ViewModel")
             
@@ -98,6 +114,13 @@ class SearchMovieViewModel{
           // Show error message to the user
         }
         
+    }
+    
+    func filterMovies(byGenres genres: Set<MovieGenre>, from movies: [Movie]) -> [Movie] {
+        return movies.filter { movie in
+            let movieGenres = Set(movie.genres.compactMap { MovieGenre(rawValue: $0) })
+            return genres.isSubset(of: movieGenres)
+        }
     }
     
 }

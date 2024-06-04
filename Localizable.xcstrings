@@ -107,6 +107,9 @@
         }
       }
     },
+    "No Movie Found" : {
+
+    },
     "No movies found" : {
       "localizations" : {
         "bn" : {

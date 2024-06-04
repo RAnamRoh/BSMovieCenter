@@ -33,10 +33,29 @@ struct FilterView: View {
                         
                         Task{
                             do{
-                                await searchViewModel.sortBy(query: sortBy)
-                                if let gotMovie = searchViewModel.movieList{
-                                    movieList = gotMovie
+                                
+                                if !searchedText.isEmpty{
+                                    await searchViewModel.sortBy(searchedMovie: searchedText, query: sortBy)
+                                }else{
+                                    await searchViewModel.sortBy(searchedMovie: nil, query: sortBy)
                                 }
+                                
+                                
+                                if selectedGenre.isEmpty{
+                                    
+                                    if let gotMovie = searchViewModel.movieList{
+                                        movieList = gotMovie
+                                    }
+                                }else {
+                                    if let gotMovie = searchViewModel.movieList{
+                                        movieList = gotMovie
+                                        movieList = searchViewModel.filterMovies(byGenres: selectedGenre, from: movieList)
+                                        if movieList.count == 0 {
+                                            searchViewModel.noMovieFound = true
+                                        }
+                                    }
+                                }
+                                
                             }
                         }
                         dismiss.callAsFunction()

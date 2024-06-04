@@ -56,9 +56,10 @@ class NetworkService{
             }
             catch {
                 print("Decoding Problem")
+                throw NetworkError.decodingError
             }
             
-            return nil
+            //return nil
         }
     }
     
