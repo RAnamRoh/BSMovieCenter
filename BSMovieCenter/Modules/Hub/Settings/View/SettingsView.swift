@@ -81,8 +81,7 @@ struct SettingsView: View {
                                      }
                                      .foregroundColor(selectedLanguage == "bn" ? .primary : .secondary)
                                      .listRowBackground(selectedLanguage == "bn" ? Color.blue.opacity(0.2) : Color.clear)
-                    
-                    
+     
                     
                     
                 }

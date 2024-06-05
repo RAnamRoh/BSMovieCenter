@@ -34,10 +34,17 @@ struct CustomSegmentedListPicker: View {
                         }) {
                             Text(genre.rawValue)
                                 .padding()
-                                .background(selectedGenres.contains(genre) ? Color.blue : Color.gray)
-                                .foregroundColor(.white)
-                                .cornerRadius(8)
+                                .background(selectedGenres.contains(genre) ? Color.gray : Color.clear)
+                                .foregroundColor(selectedGenres.contains(genre) ? Color.white : Color.primary)
+                                .cornerRadius(30)
                                 .font(.caption)
+                                .fontWeight(.semibold)
+                                
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 30)
+                                        .stroke(Color.primary, lineWidth: 2)
+                                        
+                                }
                         }
                     }
                 }
