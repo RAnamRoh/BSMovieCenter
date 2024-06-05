@@ -16,3 +16,5 @@ struct MovieData : Codable{
 struct RepoData : Codable {
     let movies : [Movie]
 }
+
+

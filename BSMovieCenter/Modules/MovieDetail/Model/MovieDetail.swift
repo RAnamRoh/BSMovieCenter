@@ -16,3 +16,4 @@ struct MovieDetail : Codable{
 struct MovieObject : Codable {
     let movie : Movie
 }
+
