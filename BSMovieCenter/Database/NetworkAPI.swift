@@ -9,8 +9,6 @@ import Foundation
 
 class NetworkAPI : RemoteDataSource {
     
-    
-    
     func fetchData<T : Codable>(from url: String) async throws -> T {
         
         guard let url = URL(string: url) else{

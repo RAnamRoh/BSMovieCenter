@@ -250,6 +250,7 @@
       }
     },
     "Top Picks" : {
+      "extractionState" : "stale",
       "localizations" : {
         "bn" : {
           "stringUnit" : {

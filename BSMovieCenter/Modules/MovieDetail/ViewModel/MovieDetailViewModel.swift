@@ -8,29 +8,36 @@
 import Foundation
 
 
-@Observable
-class MovieDetailViewModel {
+@MainActor
+class MovieDetailViewModel : ObservableObject {
     
     
-    let networkService : NetworkService
+    //let networkService : NetworkService
     
-    var movieDetail : MovieDetail?
+    @Published var movieDetail : MovieDetail?
     
     //var movie : Movie?
     
-    var isLoading = true
+    @Published var isLoading = true
     
-    init(networkService: NetworkService = NetworkService(), movieDetail: MovieDetail? = nil, isLoading: Bool = true) {
-        self.networkService = networkService
+    private let repository : MovieRepository
+    
+    init(movieDetail: MovieDetail? = nil, isLoading: Bool = true, repository: MovieRepository = MovieRepository(localDataSource: LocalDatabase(), remoteDataSource: NetworkAPI())) {
         self.movieDetail = movieDetail
         self.isLoading = isLoading
+        self.repository = repository
     }
     
     
     func fetchMovie(id : Int) async {
         do{
-            movieDetail = try await networkService.fetchObjectData(from: "\(K.MOVIE_DETAILS_URL)?movie_id=\(id)&with_cast=true")
             
+            movieDetail = try await repository.getData(from: "\(K.MOVIE_DETAILS_URL)?movie_id=\(id)&with_cast=true")
+            
+            /*
+            movieDetail = try await networkService.fetchObjectData(from: "\(K.MOVIE_DETAILS_URL)?movie_id=\(id)&with_cast=true")
+            */
+             
         }
         catch{
             print("Error In MovieDetailsViewModel : \(error.localizedDescription)")

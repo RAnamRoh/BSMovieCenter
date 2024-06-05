@@ -7,25 +7,27 @@
 
 import Foundation
 //import SwiftUI
-@Observable
-class SearchMovieViewModel{
+
+class SearchMovieViewModel : ObservableObject{
     
-    let networkService : NetworkService
+    //let networkService : NetworkService
     
-    var movieData : MovieData?
+    @Published var movieData : MovieData?
     
-    var movieList : [Movie]?
+    @Published var movieList : [Movie]?
     
-   
+    private let repository : MovieRepository
     
-    var isLoading : Bool = true
+    @Published var isLoading : Bool = true
     
-    var noMovieFound : Bool = false
+    @Published var noMovieFound : Bool = false
     
-    init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil, isLoading: Bool = true) {
-        self.networkService = networkService
+    init(movieData: MovieData? = nil, movieList: [Movie]? = nil, repository: MovieRepository = MovieRepository(localDataSource: LocalDatabase(), remoteDataSource: NetworkAPI()), isLoading: Bool = true, noMovieFound: Bool = false) {
         self.movieData = movieData
+        self.movieList = movieList
+        self.repository = repository
         self.isLoading = isLoading
+        self.noMovieFound = noMovieFound
     }
     
     @MainActor
@@ -34,7 +36,8 @@ class SearchMovieViewModel{
         noMovieFound = false
         isLoading = true
         do{
-            movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(movieName)")
+            movieData = try await repository.getData(from: "\(K.BASE_URL)?query_term=\(movieName)")
+            //movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(movieName)")
        
         }
         catch{
@@ -78,10 +81,14 @@ class SearchMovieViewModel{
         print("moviesList Count \(movieList?.count)")
         do{
             if let searchedMovie = searchedMovie{
-                movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(searchedMovie)&sort_by=\(query.rawValue)")
+                
+                movieData = try await repository.getData(from: "\(K.BASE_URL)?query_term=\(searchedMovie)&sort_by=\(query.rawValue)")
+                
+//                movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?query_term=\(searchedMovie)&sort_by=\(query.rawValue)")
             }
             else{
-                movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?sort_by=\(query.rawValue)")
+                movieData = try await repository.getData(from: "\(K.BASE_URL)?sort_by=\(query.rawValue)")
+                //movieData = try await networkService.fetchObjectData(from: "\(K.BASE_URL)?sort_by=\(query.rawValue)")
             }
             
         }

@@ -11,7 +11,7 @@ struct SearchMovieView: View {
     
     
     @State var searchedText = ""
-    @State var viewModel = SearchMovieViewModel()
+    @StateObject var viewModel = SearchMovieViewModel()
     @State var movieList : [Movie] = []
     @State var showProgress : Bool = false
     @State var filterSheetPresented : Bool = false

@@ -11,7 +11,7 @@ struct MovieDetailView: View {
     
     let movieId : Int
     @State var movie = Movie.movieExample
-    @State var viewModel = MovieDetailViewModel()
+    @StateObject var viewModel = MovieDetailViewModel()
     @EnvironmentObject var watchListViewModel : WatchListViewModel
     
     var body: some View {

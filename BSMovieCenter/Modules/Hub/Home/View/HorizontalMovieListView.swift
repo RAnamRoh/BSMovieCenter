@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct TopPickView: View {
+struct HorizontalMovieListView: View {
     
     let movieArray : [Movie]
+    
+    @State var title : String
+    
     
     var body: some View {
         VStack(spacing: 5){
             HStack{
-                Text("Top Picks")
+                Text(title)
                     .font(.title2)
                     .fontWeight(.semibold)
                 Spacer()
@@ -23,7 +26,7 @@ struct TopPickView: View {
                         .fontWeight(.semibold)
                 })
             }
-            .foregroundStyle(Color.white)
+            .foregroundStyle(Color.primary)
             ScrollView(.horizontal) {
                 HStack(spacing: 15){
                     ForEach(movieArray, id: \.id){ movie in
@@ -41,5 +44,5 @@ struct TopPickView: View {
 }
 
 #Preview {
-    TopPickView(movieArray: Movie.movieArrayExample)
+    HorizontalMovieListView(movieArray: Movie.movieArrayExample, title: "Top Picks")
 }

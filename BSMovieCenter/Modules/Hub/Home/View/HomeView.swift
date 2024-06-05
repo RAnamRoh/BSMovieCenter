@@ -39,7 +39,7 @@ import SwiftUI
 struct HomeView: View {
     
     
-    @State var viewModel = MovieInfoViewModel()
+    @StateObject var viewModel = MovieInfoViewModel()
     
     var body: some View {
         NavigationStack{
@@ -50,8 +50,8 @@ struct HomeView: View {
                       let homeView =  VStack(spacing: 10){
                             HomeHeaderView()
                             MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
-                            TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
-                            TopPickView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample)
+                          HorizontalMovieListView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, title: "Top Picks")
+                          HorizontalMovieListView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, title: "Trending")
                         }
                         .padding(.zero)
                     

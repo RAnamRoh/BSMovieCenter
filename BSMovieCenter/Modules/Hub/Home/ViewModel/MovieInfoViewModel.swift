@@ -7,24 +7,27 @@
 
 import Foundation
 
-@Observable
-class MovieInfoViewModel {
+@MainActor
+class MovieInfoViewModel : ObservableObject {
     
-    let networkService : NetworkService
+    //let networkService : NetworkService
     
-    var movieData : MovieData?
     
-    var isLoading = true
+    private var repository : MovieRepository
     
-    init(networkService: NetworkService = NetworkService(), movieData: MovieData? = nil) {
-        self.networkService = networkService
+    @Published var movieData : MovieData?
+    
+    @Published var isLoading = true
+ 
+    init(repository: MovieRepository = MovieRepository(localDataSource: LocalDatabase(), remoteDataSource:NetworkAPI() ), movieData: MovieData? = nil, isLoading: Bool = true) {
+        self.repository = repository
         self.movieData = movieData
+        self.isLoading = isLoading
     }
-    
-    @MainActor
+
     func fetchMovieData() async {
         do{
-            movieData = try await networkService.fetchObjectData(from: K.BASE_URL)
+            movieData = try await repository.getData(from: K.BASE_URL)
         }
         catch{
 //            if let networkError = error as? NetworkError {
@@ -42,7 +45,7 @@ class MovieInfoViewModel {
             
         }
         
-        if let movieData = movieData {
+        if movieData != nil {
           // Data fetched successfully, update UI
           isLoading = false
           // Use movieData for further processing
