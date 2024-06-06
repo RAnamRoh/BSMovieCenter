@@ -16,45 +16,50 @@ struct ResuableTextField: View {
     var body: some View {
       
         
-        
-        if !forPassword {
-            TextField(title, text: $enteredText)
-                .font(.title2)
-                .foregroundStyle(.primary)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: 50)
-                .background(Color("SecondaryBackgroundColor"))
-                .cornerRadius(10)
-        } else {
-            HStack{
-                if isSecureField{
-                    SecureField(title, text: $enteredText)
-                        .font(.title2)
-                        .foregroundStyle(.primary)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color("SecondaryBackgroundColor"))
-                        .cornerRadius(10)
-                }else {
-                    TextField(title, text: $enteredText)
-                        .font(.title2)
-                        .foregroundStyle(.primary)
-                        .padding()
-                        .frame(maxWidth: .infinity, maxHeight: 50)
-                        .background(Color("SecondaryBackgroundColor"))
-                        .cornerRadius(10)
-                }
-            }
-            .overlay(alignment: .trailing) {
-                Image(systemName: isSecureField ? "eye.slash" : "eye")
+        VStack{
+            if !forPassword {
+                TextField(title, text: $enteredText)
+                    .font(.title2)
+                    .foregroundStyle(.primary)
                     .padding()
-                    .onTapGesture {
-                        isSecureField.toggle()
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .background(Color("SecondaryBackgroundColor"))
+                    .cornerRadius(10)
+            } else {
+                HStack{
+                    if isSecureField{
+                        SecureField(title, text: $enteredText)
+                            .font(.title2)
+                            .foregroundStyle(.primary)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color("SecondaryBackgroundColor"))
+                            .cornerRadius(10)
+                    }else {
+                        TextField(title, text: $enteredText)
+                            .font(.title2)
+                            .foregroundStyle(.primary)
+                            .padding()
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color("SecondaryBackgroundColor"))
+                            .cornerRadius(10)
                     }
+                }
+                .overlay(alignment: .trailing) {
+                    Image(systemName: isSecureField ? "eye.slash" : "eye")
+                        .padding()
+                        .onTapGesture {
+                            isSecureField.toggle()
+                        }
+                }
+                
+                
+                
             }
-            
-            
-            
+        }
+        .overlay {
+            RoundedRectangle(cornerRadius: 10)
+                .stroke()
         }
         
        

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
+    
+    @EnvironmentObject var authViewModel : AuthViewModel
+    
     var body: some View {
         HStack{
             VStack(alignment: .leading){
                 Text("Welcome Back,")
-                Text("Rakibul Anam Rohid.")
+                Text(authViewModel.currentUser?.fullName ?? "")
                     .font(.title2)
                     .fontWeight(.bold)
             }

@@ -31,6 +31,9 @@
         }
       }
     },
+    "Account" : {
+
+    },
     "Add to Watchlist" : {
       "localizations" : {
         "bn" : {
@@ -156,6 +159,7 @@
       }
     },
     "Rakibul Anam Rohid." : {
+      "extractionState" : "stale",
       "localizations" : {
         "bn" : {
           "stringUnit" : {
@@ -272,6 +276,9 @@
           }
         }
       }
+    },
+    "There is a Problem Loading User Data" : {
+
     },
     "Top Picks" : {
       "extractionState" : "stale",
