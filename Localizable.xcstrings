@@ -41,6 +41,9 @@
         }
       }
     },
+    "Already have an account?" : {
+
+    },
     "Apply" : {
 
     },
@@ -53,6 +56,9 @@
           }
         }
       }
+    },
+    "BS Movie Center" : {
+
     },
     "By Genre" : {
 
@@ -77,6 +83,9 @@
         }
       }
     },
+    "Don't have an account?" : {
+
+    },
     "English" : {
       "localizations" : {
         "bn" : {
@@ -86,6 +95,12 @@
           }
         }
       }
+    },
+    "Lets Sign In" : {
+
+    },
+    "Lets Sign Up" : {
+
     },
     "Loading..." : {
       "localizations" : {
@@ -209,6 +224,15 @@
           }
         }
       }
+    },
+    "Sign In" : {
+
+    },
+    "Sign In with Google" : {
+
+    },
+    "Sign Up" : {
+
     },
     "Sort And Filter" : {
 

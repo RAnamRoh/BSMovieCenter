@@ -23,6 +23,8 @@
 		4A2F545B2BFC648300D68863 /* BannerMovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F545A2BFC648300D68863 /* BannerMovieDetailView.swift */; };
 		4A2F545D2BFC65B500D68863 /* BannerYear-RuntimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F545C2BFC65B500D68863 /* BannerYear-RuntimeView.swift */; };
 		4A2F545F2BFC696900D68863 /* WatchlistButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F545E2BFC696900D68863 /* WatchlistButton.swift */; };
+		4A315BE12C1184B70030FC07 /* ResuableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A315BE02C1184B70030FC07 /* ResuableTextField.swift */; };
+		4A315BE32C1193D10030FC07 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A315BE22C1193D10030FC07 /* SignupView.swift */; };
 		4A3BF8D92C09A5C700888168 /* SystemThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BF8D82C09A5C700888168 /* SystemThemeManager.swift */; };
 		4A6817672BFF61A30065C711 /* MovieRatingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6817662BFF61A30065C711 /* MovieRatingDetailView.swift */; };
 		4A6817692BFF769F0065C711 /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6817682BFF769F0065C711 /* Cast.swift */; };
@@ -75,6 +77,8 @@
 		4A2F545A2BFC648300D68863 /* BannerMovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerMovieDetailView.swift; sourceTree = "<group>"; };
 		4A2F545C2BFC65B500D68863 /* BannerYear-RuntimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BannerYear-RuntimeView.swift"; sourceTree = "<group>"; };
 		4A2F545E2BFC696900D68863 /* WatchlistButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistButton.swift; sourceTree = "<group>"; };
+		4A315BE02C1184B70030FC07 /* ResuableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResuableTextField.swift; sourceTree = "<group>"; };
+		4A315BE22C1193D10030FC07 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		4A3BF8D82C09A5C700888168 /* SystemThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemThemeManager.swift; sourceTree = "<group>"; };
 		4A6817662BFF61A30065C711 /* MovieRatingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRatingDetailView.swift; sourceTree = "<group>"; };
 		4A6817682BFF769F0065C711 /* Cast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cast.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 		4AC1CC722C103F6F00074D42 /* Sign-Up */ = {
 			isa = PBXGroup;
 			children = (
+				4A315BE22C1193D10030FC07 /* SignupView.swift */,
 			);
 			path = "Sign-Up";
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				4A0887AB2BFF1D1100209021 /* TestView.swift */,
 				4AE149F52C0DB8B7009DBA2B /* VideoView.swift */,
 				4AC1CC9A2C10A66700074D42 /* BackgroundCurveShape.swift */,
+				4A315BE02C1184B70030FC07 /* ResuableTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				4AA48F912BF7748B0059001D /* MovieData.swift in Sources */,
 				4A24CC632BF7893E000E4C4B /* MovieInfoViewModel.swift in Sources */,
 				4A2F54582BFC5DE100D68863 /* BannerRatingView.swift in Sources */,
+				4A315BE32C1193D10030FC07 /* SignupView.swift in Sources */,
 				4AE149F62C0DB8B7009DBA2B /* VideoView.swift in Sources */,
 				4A0887B02BFF4EEC00209021 /* MovieDetailView.swift in Sources */,
 				4A0887AE2BFF25DF00209021 /* CustomTabIndicator.swift in Sources */,
@@ -591,6 +598,7 @@
 				4AC1CC912C10496F00074D42 /* RemoteDataSource.swift in Sources */,
 				4AC1CC8F2C10491000074D42 /* LocalDataSource.swift in Sources */,
 				4AA48F802BF7734D0059001D /* BSMovieCenterApp.swift in Sources */,
+				4A315BE12C1184B70030FC07 /* ResuableTextField.swift in Sources */,
 				4A6817712BFF815F0065C711 /* CastView.swift in Sources */,
 				4AC1CC992C105AA100074D42 /* MovieRepository.swift in Sources */,
 				4A7B2D462C0DFAAB0090735B /* CustomSegmentedListPicker.swift in Sources */,

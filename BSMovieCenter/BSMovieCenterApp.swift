@@ -14,15 +14,16 @@ struct BSMovieCenterApp: App {
     @State private var colorScheme: ColorScheme = .light
     var body: some Scene {
         WindowGroup {
-            HubView()
-                .onChange(of: darkModeEnabled, { _, _ in
-                    colorScheme = darkModeEnabled ? .dark : .light
-                })
-                .onAppear{
-                    colorScheme = darkModeEnabled ? .dark : .light
-                }
-                .environment(\.locale, Locale(identifier: appLanguage))
-                .environment(\.colorScheme, colorScheme)
+            LoginView()
+//            HubView()
+//                .onChange(of: darkModeEnabled, { _, _ in
+//                    colorScheme = darkModeEnabled ? .dark : .light
+//                })
+//                .onAppear{
+//                    colorScheme = darkModeEnabled ? .dark : .light
+//                }
+//                .environment(\.locale, Locale(identifier: appLanguage))
+//                .environment(\.colorScheme, colorScheme)
         }
         
     }
