@@ -15,6 +15,7 @@ struct SignupView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject var authViewModel : AuthViewModel
+    @State private var showAlert : Bool = false
     
     var body: some View {
         VStack{
@@ -86,6 +87,20 @@ struct SignupView: View {
                 }
                 .padding()
             }
+            .alert(isPresented: $showAlert, content: {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(authViewModel.authError?.errorDescription ?? "Unknown Error"),
+                    dismissButton: .default(Text("OK"), action: {
+                        authViewModel.authError = nil
+                    })
+                )
+            })
+            .onChange(of: authViewModel.authError) { _, _ in
+                if authViewModel.authError != nil {
+                    showAlert = true
+                }
+            }
         }
         
     }
@@ -94,7 +109,7 @@ struct SignupView: View {
 extension SignupView : AuthenticationFormProtocol {
     var isFormValid: Bool {
         return !email.isEmpty
-        && email.contains("@")
+        && Util.isValidEmail(email)
         && !password.isEmpty
         && password.count > 5
         && !fullName.isEmpty
@@ -103,4 +118,5 @@ extension SignupView : AuthenticationFormProtocol {
 
 #Preview {
     SignupView()
+        .environmentObject(AuthViewModel())
 }

@@ -127,6 +127,9 @@ struct SettingsView: View {
                         .buttonStyle(PlainButtonStyle())
                         
                         Button(action: {
+                            Task{
+                              try await authViewModel.deleteAccount()
+                            }
                             
                         }, label: {
                             SettingRowView(imageName: "xmark.circle.fill", title: "Delete Account", tintColor: Color.red)

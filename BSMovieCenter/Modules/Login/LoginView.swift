@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @State private var email : String = ""
     @State private var password : String = ""
-    
+    @State private var showAlert : Bool = false
     @EnvironmentObject var authViewModel : AuthViewModel
     
     var body: some View {
@@ -24,8 +24,8 @@ struct LoginView: View {
                     .ignoresSafeArea()
                     .scaledToFit()
                     .foregroundStyle(Color("SecondaryBackgroundColor"))
-                    //.aspectRatio(contentMode: .fill)
-                   // .frame(height: UIScreen.main.bounds.height * 0.5, alignment: .bottom)
+                //.aspectRatio(contentMode: .fill)
+                // .frame(height: UIScreen.main.bounds.height * 0.5, alignment: .bottom)
                     .frame(maxHeight: .infinity, alignment: .bottom)
                 
                 VStack{
@@ -36,28 +36,28 @@ struct LoginView: View {
                         
                         Text("Lets Sign In")
                         
-                      ResuableTextField(enteredText: $email, title: "Email", forPassword: false)
+                        ResuableTextField(enteredText: $email, title: "Email", forPassword: false)
                         ResuableTextField(enteredText: $password, title: "Password", forPassword: true)
                     }
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.never)
                     .padding(.top, 80)
-                  
+                    
                     Spacer()
                     
                     VStack{
                         Button(action: {
-                          // Handle sign in action
-                          print("Sign In button pressed!")
+                            // Handle sign in action
+                            print("Sign In button pressed!")
                             
                             Task{
-                              try await authViewModel.signIn(withEmail: email, password: password)
+                                try await authViewModel.signIn(withEmail: email, password: password)
                             }
                             
                         }) {
-                          Text("Sign In")
-                            .foregroundColor(.white)
-                            .font(.title2) // Adjust font size if needed
+                            Text("Sign In")
+                                .foregroundColor(.white)
+                                .font(.title2) // Adjust font size if needed
                         }
                         .frame(maxWidth: .infinity, maxHeight: 50)
                         .disabled(!isFormValid)
@@ -66,20 +66,20 @@ struct LoginView: View {
                         .cornerRadius(10)
                         
                         Button(action: {
-                          // Handle sign in action
-                          print("Sign In button pressed!")
+                            // Handle sign in action
+                            print("Sign In button pressed!")
                             
                             
                             
                         }) {
                             HStack{
                                 Image("google_logo") // Replace with your Google logo image name
-                                        .resizable()
-                                        .frame(width: 24, height: 24)
-                                      
-                                      Text("Sign In with Google")
-                                        .foregroundColor(.black)
-                                        .font(.title2)
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                
+                                Text("Sign In with Google")
+                                    .foregroundColor(.black)
+                                    .font(.title2)
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: 50)
@@ -99,23 +99,38 @@ struct LoginView: View {
                         }
                         .buttonStyle(PlainButtonStyle())
                         
-
+                        
                         
                     }
                     .padding(.bottom,100)
-                   
+                    
                     
                     
                 }
                 .padding()
                 
-                    
-                    
+                
+                
+            }
+            .alert(isPresented: $showAlert, content: {
+                Alert(
+                    title: Text("Error"),
+                    message: Text(authViewModel.authError?.errorDescription ?? "Unknown Error"),
+                    dismissButton: .default(Text("OK"), action: {
+                        authViewModel.authError = nil
+                    })
+                )
+            })
+            .onChange(of: authViewModel.authError) { _, _ in
+                if authViewModel.authError != nil {
+                    showAlert = true
+                }
             }
         }
-            
         
-     
+        
+        
+        
         
     }
 }
@@ -127,10 +142,12 @@ extension LoginView : AuthenticationFormProtocol {
         && email.contains("@")
         && !password.isEmpty
         && password.count > 5
+        && Util.isValidEmail(email)
     }
 }
 
 
 #Preview {
     LoginView()
+        .environmentObject(AuthViewModel())
 }

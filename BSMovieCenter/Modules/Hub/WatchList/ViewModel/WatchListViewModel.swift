@@ -6,9 +6,13 @@
 //
 
 import Foundation
-
+import Firebase
+import FirebaseFirestoreSwift
 
 class WatchListViewModel : ObservableObject{
+    
+    
+    @Published var firestore = Firestore.firestore()
     
    @Published var movieWatchList : [Movie] = []{
         didSet{
@@ -59,12 +63,20 @@ class WatchListViewModel : ObservableObject{
     */
     
     func addMovie(movie: Movie) {
+        
+        
+        
+        
+        
         if !movieWatchList.contains(where: { $0.id == movie.id }) {
           movieWatchList.append(movie)
           print("Movie added to watchlist")
         } else {
           print("Movie already exists in watchlist")
         }
+        
+        
+        
       }
     
     func deleteMovie(indexSet: IndexSet){
