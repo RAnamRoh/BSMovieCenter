@@ -116,8 +116,10 @@ struct MovieDetailView: View {
                                 
                                 VStack{
                                     Button(action: {
+                                        Task{
+                                         await   watchListViewModel.addMovie(movie: movie)
+                                        }
                                         
-                                        watchListViewModel.addMovie(movie: movie)
                                         
                                     }) {
                                         Text("Add to Watchlist")

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HubView: View {
-    
+    @EnvironmentObject var authViewModel : AuthViewModel
     @StateObject var watchListViewModel : WatchListViewModel = WatchListViewModel()
     @Environment(\.colorScheme) var colorScheme
     @AppStorage("darkModeEnabled") var darkModeEnabled : Bool = false
@@ -60,5 +60,6 @@ struct HubView: View {
         HubView()
     }
     .environmentObject(WatchListViewModel())
+    .environmentObject(AuthViewModel())
     
 }

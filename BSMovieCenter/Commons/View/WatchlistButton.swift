@@ -15,7 +15,11 @@ struct WatchlistButton: View {
     
     var body: some View {
         Button(action: {
-            watchListViewModel.addMovie(movie: movie)
+            Task{
+             await  watchListViewModel.addMovie(movie: movie)
+            }
+            
+          
         }) {
             Text("Add to Watchlist")
                 .foregroundStyle(Color.white)
