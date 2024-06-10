@@ -27,7 +27,6 @@
 		4A315BE32C1193D10030FC07 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A315BE22C1193D10030FC07 /* SignupView.swift */; };
 		4A315BE62C11A7A70030FC07 /* SettingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A315BE52C11A7A70030FC07 /* SettingRowView.swift */; };
 		4A315BE92C11AA080030FC07 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A315BE82C11AA080030FC07 /* User.swift */; };
-		4A315BEB2C11AE540030FC07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A315BEA2C11AE540030FC07 /* GoogleService-Info.plist */; };
 		4A315BEE2C11AFAD0030FC07 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4A315BED2C11AFAD0030FC07 /* FirebaseAuth */; };
 		4A315BF02C11AFAD0030FC07 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A315BEF2C11AFAD0030FC07 /* FirebaseFirestore */; };
 		4A315BF22C11AFAD0030FC07 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A315BF12C11AFAD0030FC07 /* FirebaseFirestoreSwift */; };
@@ -59,6 +58,11 @@
 		4AC1CC992C105AA100074D42 /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1CC982C105AA100074D42 /* MovieRepository.swift */; };
 		4AC1CC9B2C10A66700074D42 /* BackgroundCurveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1CC9A2C10A66700074D42 /* BackgroundCurveShape.swift */; };
 		4AC1CC9D2C10A69200074D42 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC1CC9C2C10A69200074D42 /* LoginView.swift */; };
+		4AC680CA2C16CFB400DC1C51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC680C92C16CFB400DC1C51 /* AppDelegate.swift */; };
+		4AC680CD2C16D0C600DC1C51 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC680CC2C16D0C600DC1C51 /* GoogleSignIn */; };
+		4AC680CF2C16D0C600DC1C51 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4AC680CE2C16D0C600DC1C51 /* GoogleSignInSwift */; };
+		4AC680D12C16D3B500DC1C51 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AC680D02C16D3B500DC1C51 /* GoogleService-Info.plist */; };
+		4AC680D42C16DBD800DC1C51 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC680D32C16DBD800DC1C51 /* TopViewController.swift */; };
 		4AE149F22C0D9BBB009DBA2B /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE149F12C0D9BBB009DBA2B /* FilterView.swift */; };
 		4AE149F62C0DB8B7009DBA2B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE149F52C0DB8B7009DBA2B /* VideoView.swift */; };
 		4AE149F92C0DE9FC009DBA2B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE149F82C0DE9FC009DBA2B /* Enums.swift */; };
@@ -91,7 +95,6 @@
 		4A315BE22C1193D10030FC07 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		4A315BE52C11A7A70030FC07 /* SettingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRowView.swift; sourceTree = "<group>"; };
 		4A315BE82C11AA080030FC07 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		4A315BEA2C11AE540030FC07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A315BF62C11B0160030FC07 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		4A315BF82C11B3F10030FC07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4A315BFA2C11C3DD0030FC07 /* AuthenticationFormProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFormProtocol.swift; sourceTree = "<group>"; };
@@ -120,6 +123,10 @@
 		4AC1CC982C105AA100074D42 /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
 		4AC1CC9A2C10A66700074D42 /* BackgroundCurveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCurveShape.swift; sourceTree = "<group>"; };
 		4AC1CC9C2C10A69200074D42 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4AC680C92C16CFB400DC1C51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AC680D02C16D3B500DC1C51 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4AC680D22C16D57F00DC1C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4AC680D32C16DBD800DC1C51 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
 		4AE149F12C0D9BBB009DBA2B /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		4AE149F52C0DB8B7009DBA2B /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		4AE149F82C0DE9FC009DBA2B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -136,8 +143,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC680CD2C16D0C600DC1C51 /* GoogleSignIn in Frameworks */,
 				4A315BEE2C11AFAD0030FC07 /* FirebaseAuth in Frameworks */,
 				4A315BF42C11AFAD0030FC07 /* FirebaseStorage in Frameworks */,
+				4AC680CF2C16D0C600DC1C51 /* GoogleSignInSwift in Frameworks */,
 				4A315BF02C11AFAD0030FC07 /* FirebaseFirestore in Frameworks */,
 				4A315BF22C11AFAD0030FC07 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -152,6 +161,8 @@
 				4A24CC6B2BFB813D000E4C4B /* Shimmering.swift */,
 				4AE425312BFC8D4C00EF7877 /* Util.swift */,
 				4A68176A2BFF7C560065C711 /* Constants.swift */,
+				4AC680C92C16CFB400DC1C51 /* AppDelegate.swift */,
+				4AC680D32C16DBD800DC1C51 /* TopViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -209,6 +220,7 @@
 		4AA48F7E2BF7734D0059001D /* BSMovieCenter */ = {
 			isa = PBXGroup;
 			children = (
+				4AC680D22C16D57F00DC1C51 /* Info.plist */,
 				4A315BE42C119F670030FC07 /* Authentication */,
 				4AC1CC932C10558200074D42 /* Database */,
 				4AC1CC922C10554E00074D42 /* Repositories */,
@@ -223,7 +235,7 @@
 				4AA48F7F2BF7734D0059001D /* BSMovieCenterApp.swift */,
 				4A315BF82C11B3F10030FC07 /* ContentView.swift */,
 				4AA48F832BF7734E0059001D /* Assets.xcassets */,
-				4A315BEA2C11AE540030FC07 /* GoogleService-Info.plist */,
+				4AC680D02C16D3B500DC1C51 /* GoogleService-Info.plist */,
 				4AA48F852BF7734E0059001D /* Preview Content */,
 			);
 			path = BSMovieCenter;
@@ -559,6 +571,8 @@
 				4A315BEF2C11AFAD0030FC07 /* FirebaseFirestore */,
 				4A315BF12C11AFAD0030FC07 /* FirebaseFirestoreSwift */,
 				4A315BF32C11AFAD0030FC07 /* FirebaseStorage */,
+				4AC680CC2C16D0C600DC1C51 /* GoogleSignIn */,
+				4AC680CE2C16D0C600DC1C51 /* GoogleSignInSwift */,
 			);
 			productName = BSMovieCenter;
 			productReference = 4AA48F7C2BF7734D0059001D /* BSMovieCenter.app */;
@@ -592,6 +606,7 @@
 			mainGroup = 4AA48F732BF7734D0059001D;
 			packageReferences = (
 				4A315BEC2C11AFAD0030FC07 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4AC680CB2C16D0C600DC1C51 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 4AA48F7D2BF7734D0059001D /* Products */;
 			projectDirPath = "";
@@ -608,7 +623,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA48F872BF7734E0059001D /* Preview Assets.xcassets in Resources */,
-				4A315BEB2C11AE540030FC07 /* GoogleService-Info.plist in Resources */,
+				4AC680D12C16D3B500DC1C51 /* GoogleService-Info.plist in Resources */,
 				4AA48F842BF7734E0059001D /* Assets.xcassets in Resources */,
 				4A0581CD2C085FDC00FE370D /* Localizable.xcstrings in Resources */,
 			);
@@ -645,6 +660,7 @@
 				4A2F545F2BFC696900D68863 /* WatchlistButton.swift in Sources */,
 				4A2F545B2BFC648300D68863 /* BannerMovieDetailView.swift in Sources */,
 				4AE149F92C0DE9FC009DBA2B /* Enums.swift in Sources */,
+				4AC680D42C16DBD800DC1C51 /* TopViewController.swift in Sources */,
 				4A315BE62C11A7A70030FC07 /* SettingRowView.swift in Sources */,
 				4AA48F942BF7753A0059001D /* NetworkService.swift in Sources */,
 				4A24CC6C2BFB813D000E4C4B /* Shimmering.swift in Sources */,
@@ -669,6 +685,7 @@
 				4A7B2D462C0DFAAB0090735B /* CustomSegmentedListPicker.swift in Sources */,
 				4A68176F2BFF7D440065C711 /* MovieDetail.swift in Sources */,
 				4A68176D2BFF7CB30065C711 /* MovieDetailViewModel.swift in Sources */,
+				4AC680CA2C16CFB400DC1C51 /* AppDelegate.swift in Sources */,
 				4A6D51162C0747ED000DC300 /* WatchListView.swift in Sources */,
 				4AE425362BFC94EA00EF7877 /* PosterView.swift in Sources */,
 				4A6817692BFF769F0065C711 /* Cast.swift in Sources */,
@@ -810,6 +827,7 @@
 				DEVELOPMENT_TEAM = PBHADL468Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BSMovieCenter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -839,6 +857,7 @@
 				DEVELOPMENT_TEAM = PBHADL468Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BSMovieCenter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -889,6 +908,14 @@
 				minimumVersion = 10.27.0;
 			};
 		};
+		4AC680CB2C16D0C600DC1C51 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -911,6 +938,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4A315BEC2C11AFAD0030FC07 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		4AC680CC2C16D0C600DC1C51 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AC680CB2C16D0C600DC1C51 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		4AC680CE2C16D0C600DC1C51 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AC680CB2C16D0C600DC1C51 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

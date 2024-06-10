@@ -67,9 +67,11 @@ struct LoginView: View {
                         
                         Button(action: {
                             // Handle sign in action
-                            print("Sign In button pressed!")
+                            print("Sign In with Google button pressed!")
                             
-                            
+                            Task{
+                                try await authViewModel.signInWithGoogle()
+                            }
                             
                         }) {
                             HStack{

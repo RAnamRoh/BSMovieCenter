@@ -8,6 +8,10 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
+import GoogleSignInSwift
 
 
 
@@ -139,6 +143,53 @@ class AuthViewModel : ObservableObject {
         }
         
     }
+    
+    
+    
+    func signInWithGoogle() async throws {
+        
+        guard let topVC = TopViewController.shared.topViewController() else {
+            throw AuthError.unknownError("Didnt get top VC")
+        }
+        do {
+            let gIDSignResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topVC)
+            
+            guard let idToken : String = gIDSignResult.user.idToken?.tokenString else {
+                throw URLError(.badServerResponse)
+            }
+            
+            let accessToken : String = gIDSignResult.user.accessToken.tokenString
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            
+            
+            let result = try await Auth.auth().signIn(with: credential)
+            
+            self.userSession = result.user
+            
+            //Check If the User Exists
+            let userId = result.user.uid
+            let docRef = Firestore.firestore().collection("users").document(userId)
+            let snapshot = try await docRef.getDocument()
+            
+            if snapshot.exists{
+                print("User Exists")
+            }else {
+                let user = User(id: result.user.uid, fullName: result.user.displayName ?? "" , email: result.user.email ?? "" , movieWatchList: nil)
+                let encodedUser = try Firestore.Encoder().encode(user)
+                try await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
+            }
+            
+            await fetchUser()
+            
+            
+        }
+        catch {
+            handleAuthError(error)
+        }
+       
+    }
+    
     
     
   

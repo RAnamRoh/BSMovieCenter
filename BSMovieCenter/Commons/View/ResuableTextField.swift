@@ -59,7 +59,7 @@ struct ResuableTextField: View {
         }
         .overlay {
             RoundedRectangle(cornerRadius: 10)
-                .stroke()
+                .stroke(lineWidth: 0.25)
         }
         
        

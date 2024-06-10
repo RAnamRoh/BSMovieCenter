@@ -32,7 +32,14 @@
       }
     },
     "Account" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অ্যাকাউন্ট"
+          }
+        }
+      }
     },
     "Add to Watchlist" : {
       "localizations" : {
@@ -45,10 +52,24 @@
       }
     },
     "Already have an account?" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "একাউন্ট আছে?"
+          }
+        }
+      }
     },
     "Apply" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "আবেদন করুন"
+          }
+        }
+      }
     },
     "Bangla" : {
       "localizations" : {
@@ -64,7 +85,14 @@
 
     },
     "By Genre" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "রীতি অনুসারে"
+          }
+        }
+      }
     },
     "Cast" : {
       "localizations" : {
@@ -87,7 +115,14 @@
       }
     },
     "Don't have an account?" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অ্যাকাউন্ট নেই?"
+          }
+        }
+      }
     },
     "English" : {
       "localizations" : {
@@ -100,13 +135,34 @@
       }
     },
     "Error" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ত্রুটি"
+          }
+        }
+      }
     },
     "Lets Sign In" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "সাইন ইন করুন"
+          }
+        }
+      }
     },
     "Lets Sign Up" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নিবন্ধন করুন"
+          }
+        }
+      }
     },
     "Loading..." : {
       "localizations" : {
@@ -129,7 +185,14 @@
       }
     },
     "No Movie Found" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "কোন সিনেমা পাওয়া যায়নি"
+          }
+        }
+      }
     },
     "No movies found" : {
       "localizations" : {
@@ -233,19 +296,54 @@
       }
     },
     "Sign In" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "সাইন ইন করুন"
+          }
+        }
+      }
     },
     "Sign In with Google" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "গুগল দিয়ে সাইন ইন করুন"
+          }
+        }
+      }
     },
     "Sign Up" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নিবন্ধন করুন"
+          }
+        }
+      }
     },
     "Sort And Filter" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "বাছাই এবং ফিল্টার"
+          }
+        }
+      }
     },
     "Sort By" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ক্রমানুসার"
+          }
+        }
+      }
     },
     "SortBy" : {
 
@@ -281,7 +379,14 @@
       }
     },
     "There is a Problem Loading User Data" : {
-
+      "localizations" : {
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ব্যবহারকারীর ডেটা লোড করতে সমস্যা হচ্ছে"
+          }
+        }
+      }
     },
     "Top Picks" : {
       "extractionState" : "stale",

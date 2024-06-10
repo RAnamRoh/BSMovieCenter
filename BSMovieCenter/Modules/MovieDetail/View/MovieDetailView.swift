@@ -89,20 +89,33 @@ struct MovieDetailView: View {
                                 
                                 VStack(alignment: .leading, spacing: 5){
                                     
-                                    HStack{
-                                        ForEach(movie.genres, id: \.self){genre in
-                                            Text(genre)
-                                                .font(.callout)
-                                                .fontWeight(.regular)
-                                                .foregroundStyle(.primary)
-                                            if genre != movie.genres.last {
-                                                Circle()
+                                    
+                                        HStack{
+                                            ForEach(movie.genres, id: \.self){genre in
+                                                Text(genre)
+                                                    .font(.system(size: 15))
+                                                    .fontWeight(.regular)
                                                     .foregroundStyle(.primary)
-                                                    .frame(width: 3)
+                                                    .lineLimit(1)
+                                                if genre != movie.genres.last {
+                                                    Circle()
+                                                        .foregroundStyle(.primary)
+                                                        .frame(width: 3)
+                                                }
                                             }
+                                            
                                         }
-                                        
-                                    }
+                                    
+                                   
+                                     
+                                    
+                                    
+                               
+                                    
+                                    
+                                    
+                                    
+                                    
                                     Text(movie.title)
                                         .font(.title)
                                         .fontWeight(.semibold)
