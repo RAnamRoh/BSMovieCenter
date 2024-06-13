@@ -13,6 +13,9 @@ struct MovieDetailView: View {
     @State var movie = Movie.movieExample
     @StateObject var viewModel = MovieDetailViewModel()
     @EnvironmentObject var watchListViewModel : WatchListViewModel
+    var inWatchlistBool : Bool {
+        watchListViewModel.movieWatchList.contains(where: {$0.id == movie.id})
+    }
     
     var body: some View {
         
@@ -129,19 +132,23 @@ struct MovieDetailView: View {
                                 
                                 VStack{
                                     Button(action: {
-                                        Task{
-                                         await   watchListViewModel.addMovie(movie: movie)
+                                        Task {
+                                            if inWatchlistBool {
+                                                await watchListViewModel.removeMovie(movie: movie)
+                                            } else {
+                                                await watchListViewModel.addMovie(movie: movie)
+                                            }
                                         }
                                         
                                         
                                     }) {
-                                        Text("Add to Watchlist")
+                                        Text(inWatchlistBool ? "In Watchlist" : "Add to Watchlist")
                                             .foregroundStyle(Color.white)
                                             .frame(maxWidth: .infinity)
                                             .padding(10)
                                             .font(.title3)
                                             .fontWeight(.semibold)
-                                            .background(Color("WatchlistButtonColor"))
+                                            .background(inWatchlistBool ? Color.green : Color("WatchlistButtonColor"))
                                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                     }
                                     

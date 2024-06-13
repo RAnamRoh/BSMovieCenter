@@ -48,8 +48,8 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 ScrollView {
                       let homeView =  VStack(spacing: 10){
-                            HomeHeaderView()
-                            MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
+                          HomeHeaderView()
+                          MovieTabView(movies: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, isLoading: viewModel.isLoading)
                           HorizontalMovieListView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, title: "Top Picks")
                           HorizontalMovieListView(movieArray: viewModel.movieData?.data.movies ?? Movie.movieArrayExample, title: "Trending")
                         }

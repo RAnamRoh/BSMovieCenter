@@ -22,10 +22,13 @@ struct FilterView: View {
        
         ZStack{
             Color("AppBackgroundColor")
+                .ignoresSafeArea()
             VStack{
                 HStack{
                     
                     Text("Sort And Filter")
+                        .font(.title)
+                        .fontWeight(.bold)
                     
                     Spacer()
                     
@@ -76,6 +79,8 @@ struct FilterView: View {
                     .frame(maxWidth: .infinity, maxHeight: 1)
                 VStack(alignment: .leading){
                     Text("Sort By")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     Divider()
                    
                     Picker("SortBy", selection: $sortBy) {
@@ -89,6 +94,8 @@ struct FilterView: View {
                     Divider()
                     
                     Text("By Genre")
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     Divider()
                     
                     CustomSegmentedListPicker(selectedGenres: $selectedGenre, genres: MovieGenre.allCases, columns: 4)

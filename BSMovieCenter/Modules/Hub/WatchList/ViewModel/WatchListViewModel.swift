@@ -78,7 +78,7 @@ class WatchListViewModel : ObservableObject{
     
     
     func addMovie(movie: Movie) async {
-        guard let userId = userId else {
+        guard userId != nil else {
             print("User not logged in")
             return
         }
@@ -98,6 +98,16 @@ class WatchListViewModel : ObservableObject{
         }
         
     }
+    
+    func removeMovie(movie: Movie) async {
+         guard let userId = userId else {
+             print("User not logged in")
+             return
+         }
+         movieWatchList.removeAll { $0.id == movie.id }
+         print("Movie removed from watchlist")
+         await updateFirestoreUser()
+     }
     
     
     func updateFirestoreUser() async{
