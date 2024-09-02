@@ -152,6 +152,9 @@ struct SettingsView: View {
         }
         else {
             Text("There is a Problem Loading User Data")
+                .onTapGesture {
+                    authViewModel.signOut()
+                }
         }
         
         

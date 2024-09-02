@@ -63,32 +63,39 @@ struct MovieDetailView: View {
                             
                             VStack(alignment: .leading) {
                                 
-                                
-                                AsyncImage(url: URL(string: movie.large_cover_image)){ phase in
-                                    if let image = phase.image{
+                                if movie.yt_trailer_code?.count != 0 {
+                                    YTView(ytVideoID: movie.yt_trailer_code ?? "")
+                                        .frame(height: foregroundImageHeight)
+                                        .clipShape(RoundedRectangle(cornerRadius: 20))
                                         
-                                        image
-                                            .resizable()
-                                            .frame(height: foregroundImageHeight)
-                                            .clipShape(.rect(cornerRadius: 20))
-                                        
-                                        
-                                    } else if phase.error != nil {
-                                        Image(K.ImageAssetNames.movieCoverImage)
-                                            .resizable()
-                                            .frame(height: foregroundImageHeight)
-                                            .clipShape(.rect(cornerRadius: 20))
-                                            .redacted(reason: .placeholder)
-                                            .shimmering()
-                                    }else {
-                                        Image(K.ImageAssetNames.movieCoverImage)
-                                            .resizable()
-                                            .frame(height: foregroundImageHeight )
-                                            .clipShape(.rect(cornerRadius: 20))
-                                            .redacted(reason: .placeholder)
-                                            .shimmering()
+                                }else {
+                                    AsyncImage(url: URL(string: movie.large_cover_image)){ phase in
+                                        if let image = phase.image{
+                                            
+                                            image
+                                                .resizable()
+                                                .frame(height: foregroundImageHeight)
+                                                .clipShape(.rect(cornerRadius: 20))
+                                            
+                                            
+                                        } else if phase.error != nil {
+                                            Image(K.ImageAssetNames.movieCoverImage)
+                                                .resizable()
+                                                .frame(height: foregroundImageHeight)
+                                                .clipShape(.rect(cornerRadius: 20))
+                                                .redacted(reason: .placeholder)
+                                                .shimmering()
+                                        }else {
+                                            Image(K.ImageAssetNames.movieCoverImage)
+                                                .resizable()
+                                                .frame(height: foregroundImageHeight )
+                                                .clipShape(.rect(cornerRadius: 20))
+                                                .redacted(reason: .placeholder)
+                                                .shimmering()
+                                        }
                                     }
                                 }
+                                
                                 
                                 VStack(alignment: .leading, spacing: 5){
                                     
