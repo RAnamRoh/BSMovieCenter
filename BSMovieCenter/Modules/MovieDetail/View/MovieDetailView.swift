@@ -16,6 +16,8 @@ struct MovieDetailView: View {
     var inWatchlistBool : Bool {
         watchListViewModel.movieWatchList.contains(where: {$0.id == movie.id})
     }
+    @State private var isPlaying = false
+    
     
     var body: some View {
         
@@ -67,6 +69,9 @@ struct MovieDetailView: View {
                                     YTView(ytVideoID: movie.yt_trailer_code ?? "")
                                         .frame(height: foregroundImageHeight)
                                         .clipShape(RoundedRectangle(cornerRadius: 20))
+                                        .onAppear {
+                                            //setupNotificationObservers()
+                                        }
                                         
                                 }else {
                                     AsyncImage(url: URL(string: movie.large_cover_image)){ phase in
@@ -237,6 +242,25 @@ struct MovieDetailView: View {
         
         
     }
+    
+    
+    
+    private func setupNotificationObservers() {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("PlayVideo"), object: nil, queue: .main) { _ in
+            // Handle play event
+            print("Play command received")
+            isPlaying = true
+            // Insert code to play the video here
+        }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("PauseVideo"), object: nil, queue: .main) { _ in
+            // Handle pause event
+            print("Pause command received")
+            isPlaying = false
+            // Insert code to pause the video here
+        }
+    }
+
 }
 
 #Preview {
